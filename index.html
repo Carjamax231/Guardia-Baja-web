@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardia Baja - Cortometraje</title>
     <style>
-        /* Estética Minimalista: Negro y Rojo */
+        /* Estética Cine: Negro y Rojo */
         body { 
             background-color: #000000; 
             color: #ffffff; 
@@ -14,7 +14,7 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section - Título Gigante */
+        /* Portada Principal */
         .hero { 
             height: 100vh; 
             display: flex; 
@@ -35,11 +35,12 @@
         }
 
         .tagline { 
-            font-size: 1.2rem; 
+            font-size: 1.1rem; 
             color: #888; 
             margin-top: 20px; 
-            max-width: 600px;
+            max-width: 700px;
             letter-spacing: 2px;
+            padding: 0 20px;
         }
 
         .btn-rojo { 
@@ -47,114 +48,160 @@
             background-color: #e50914; 
             color: white; 
             padding: 18px 40px; 
-            text-decoration: none; 
             font-weight: bold; 
-            border-radius: 0; 
-            display: inline-block; 
-            transition: 0.3s;
             border: none;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 2px;
+            transition: 0.3s;
         }
 
         .btn-rojo:hover { background-color: #ffffff; color: #000000; }
 
-        /* Sección Oculta de Patrocinio */
+        /* Sección de Patrocinio (Oculta al inicio) */
         #seccion-patrocinio {
-            display: none; /* Se oculta al inicio */
+            display: none; 
             padding: 80px 20px;
             background-color: #050505;
             animation: fadeIn 1s ease forwards;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
+        h2 { font-size: 2.5rem; text-align: center; letter-spacing: 5px; color: #e50914; margin-bottom: 50px; }
+
+        /* Contenedor de 4 columnas */
         .pricing-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: 40px auto;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .plan-card {
             background: #111;
             border: 1px solid #222;
-            padding: 40px;
-            text-align: left;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
             transition: 0.3s;
         }
 
-        .plan-card:hover { border-color: #e50914; }
-        .plan-card h3 { color: #e50914; margin-top: 0; letter-spacing: 2px; }
-        .price { font-size: 2rem; font-weight: bold; margin: 20px 0; }
-        .plan-card ul { list-style: none; padding: 0; color: #aaa; line-height: 1.6; }
-        .plan-card li { margin-bottom: 12px; border-bottom: 1px solid #222; padding-bottom: 5px; }
-        
-        h2 { font-size: 2.5rem; text-align: center; letter-spacing: 5px; }
+        .plan-card:hover { border-color: #e50914; background: #161616; }
 
-        footer { padding: 40px; color: #444; font-size: 0.8rem; letter-spacing: 1px; }
+        .plan-card h3 { color: #e50914; font-size: 1.2rem; letter-spacing: 1px; margin-bottom: 5px; }
+        .plan-card h4 { font-size: 0.9rem; color: #555; text-transform: uppercase; margin-bottom: 20px; }
+        
+        .price { font-size: 1.8rem; font-weight: bold; margin: 15px 0; color: #ffffff; }
+
+        .plan-card ul { list-style: none; padding: 0; color: #bbb; font-size: 0.85rem; line-height: 1.5; flex-grow: 1; }
+        .plan-card li { margin-bottom: 12px; position: relative; padding-left: 20px; }
+        .plan-card li::before { content: "🥊"; position: absolute; left: 0; font-size: 0.7rem; top: 3px; }
+
+        /* Mensaje Final */
+        .recordatorio {
+            max-width: 800px;
+            margin: 60px auto 0;
+            text-align: center;
+            border-top: 1px solid #222;
+            padding-top: 40px;
+        }
+
+        .recordatorio h5 { color: #e50914; font-size: 1rem; letter-spacing: 2px; margin-bottom: 20px; }
+        .recordatorio p { color: #888; font-size: 0.9rem; line-height: 1.6; font-style: italic; }
+
+        footer { padding: 60px 20px; color: #444; font-size: 0.7rem; text-align: center; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
     <section class="hero">
         <h1>GUARDIA BAJA</h1>
-        <p class="tagline">¿Qué ocurre cuando el combate más difícil no se libra en el ring?</p>
+        <p class="tagline">¿QUÉ OCURRE CUANDO EL COMBATE MÁS DIFÍCIL NO SE LIBRA EN EL RING, SINO FRENTE AL PESO DE LAS EXPECTATIVAS?</p>
         <button class="btn-rojo" onclick="mostrarPatrocinio()">Ver Planes de Patrocinio</button>
     </section>
 
     <section id="seccion-patrocinio">
         <h2>PLANES DE PATROCINIO</h2>
+        
         <div class="pricing-container">
             <div class="plan-card">
-                <h3>PRIMER ROUND</h3>
-                <p class="price">$50</p>
+                <h3>PLAN 1: PRIMER ROUND</h3>
+                <h4>¿Qué incluye?</h4>
                 <ul>
-                    <li>Post en el feed</li>
-                    <li>2 Historias backstage</li>
-                    <li>Logo en el Reel</li>
-                    <li>Invitación al estreno</li>
+                    <li>1 post en el feed (foto o video) agradeciendo y mencionando a la marca</li>
+                    <li>2 historias durante el rodaje (backstage) con mención directa</li>
+                    <li>1 reel con material del detrás de cámara, incluyendo logo o nombre al final</li>
+                    <li>Presencia en historia destacada permanente en Instagram (“Aliados”)</li>
+                    <li>Invitación al estreno del cortometraje</li>
                 </ul>
-            </div>
-
-            <div class="plan-card" style="border: 1px solid #e50914;">
-                <h3>GOLPE CERTERO</h3>
-                <p class="price">$80</p>
-                <ul>
-                    <li>Todo el Plan 1</li>
-                    <li>Mención en créditos</li>
-                    <li>Logo en afiches y flyers</li>
-                    <li>Publicación personalizada</li>
-                </ul>
+                <p class="price">$50 USD</p>
             </div>
 
             <div class="plan-card">
-                <h3>KNOCKOUT</h3>
-                <p class="price">$300</p>
+                <h3>PLAN 2: GOLPE CERTERO</h3>
+                <h4>¿Qué incluye?</h4>
                 <ul>
-                    <li>Todo el Plan 2</li>
-                    <li>Créditos principales</li>
-                    <li>Comercial storytelling</li>
-                    <li>Material exclusivo</li>
+                    <li><strong>Todo lo del Plan Primer Round, más:</strong></li>
+                    <li>Mención especial en los créditos como Patrocinante Oficial</li>
+                    <li>Inclusión del logo en materiales promocionales (afiches, flyers, piezas digitales)</li>
+                    <li>1 publicación personalizada adaptada a la estética de la marca</li>
+                    <li>1 contenido grupal del equipo agradeciendo públicamente a los patrocinadores</li>
+                    <li>Invitación al estreno</li>
                 </ul>
+                <p class="price">$80 USD</p>
             </div>
+
+            <div class="plan-card">
+                <h3>PLAN 3: ESQUINA DEL CAMPEÓN</h3>
+                <h4>¿Qué incluye?</h4>
+                <ul>
+                    <li>Presencia del producto o servicio dentro del cortometraje (según coherencia narrativa)</li>
+                    <li>Mención visual del logo o marca dentro de escena (de forma natural e integrada)</li>
+                    <li>2 historias mostrando el producto o agradeciendo su apoyo</li>
+                    <li>Mención en créditos como Colaborador Creativo</li>
+                    <li>Logo en materiales promocionales del estreno</li>
+                    <li>Video informal de agradecimiento del equipo (para uso en redes de la marca)</li>
+                    <li>Acceso anticipado al tráiler + invitación al estreno</li>
+                </ul>
+                <p class="price">$120 USD</p>
+            </div>
+
+            <div class="plan-card" style="border-color: #e50914;">
+                <h3>PLAN 4: KNOCKOUT</h3>
+                <h4>¿Qué incluye?</h4>
+                <ul>
+                    <li><strong>Presencia destacada en el cortometraje:</strong> Logo al final, Créditos principales, Inclusión en afiche oficial</li>
+                    <li><strong>Instagram:</strong> 2 posts, 1 reel, 2 historias con etiquetado</li>
+                    <li>Video especial (30-60 seg) adaptado al estilo de la marca</li>
+                    <li>Mini comercial (≤25 seg) tipo storytelling para redes</li>
+                    <li><strong>Material exclusivo:</strong> Fotos backstage, Contenido audiovisual editable, Diseños personalizados</li>
+                    <li><strong>Opcional:</strong> Integración de producto en campaña, Video testimonial del equipo</li>
+                </ul>
+                <p class="price">$300 USD</p>
+            </div>
+        </div>
+
+        <div class="recordatorio">
+            <h5>LES RECORDAMOS QUE</h5>
+            <p>Todos nuestros planes son flexibles y adaptables según las necesidades y objetivos de cada marca. Creemos en la construcción de alianzas estratégicas que generen valor para ambas partes, por lo que cada propuesta puede ajustarse para lograr una integración auténtica dentro del proyecto. Agradecemos su interés en "Guardia Baja" y sería un honor contar con su apoyo para dar vida a esta historia.</p>
+            <p style="color: #e50914; font-weight: bold; margin-top: 20px;">¡GRACIAS!</p>
         </div>
     </section>
 
     <footer>
-        <p>Caracas - Venezuela | 2026 | Mas Información: example@email.com</p>
+        <p>BARQUISIMETO - CARACAS | 2026 | EN PRODUCCIÓN</p>
     </footer>
 
     <script>
         function mostrarPatrocinio() {
             var x = document.getElementById("seccion-patrocinio");
-            x.style.display = "block"; // Muestra la sección
-            x.scrollIntoView({behavior: "smooth"}); // Desliza suavemente hacia abajo
+            x.style.display = "block";
+            x.scrollIntoView({behavior: "smooth"});
         }
     </script>
 
