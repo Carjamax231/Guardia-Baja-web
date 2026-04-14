@@ -13,39 +13,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardia Baja - Cortometraje</title>
     <style>
-        /* Estilos rápidos de cine */
-        body { background-color: #0a0a0a; color: #ffffff; font-family: 'Helvetica', sans-serif; margin: 0; text-align: center; }
-        .hero { padding: 100px 20px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1509023467864-1ecbb3f6354b?q=80&w=2070'); background-size: cover; }
-        h1 { font-size: 4rem; color: #e50914; margin-bottom: 10px; letter-spacing: 5px; }
-        .tagline { font-style: italic; color: #ccc; }
-        section { padding: 50px 20px; max-width: 800px; margin: auto; }
-        .btn-rojo { background-color: #e50914; color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block; transition: 0.3s; }
-        .btn-rojo:hover { background-color: #b20710; transform: scale(1.05); }
-        h2 { border-bottom: 2px solid #e50914; display: inline-block; padding-bottom: 10px; }
+       .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .plan-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 30px;
+            border-radius: 10px;
+            transition: 0.3s;
+            text-align: left;
+        }
+        .plan-card:hover {
+            border-color: #e50914;
+            transform: translateY(-5px);
+        }
+        .plan-card h3 { color: #e50914; margin-top: 0; }
+        .price { font-size: 1.5rem; font-weight: bold; margin: 15px 0; }
+        .plan-card ul { list-style: none; padding: 0; font-size: 0.9rem; color: #ccc; }
+        .plan-card li { margin-bottom: 10px; }
+        .plan-card li::before { content: "🥊 "; }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <h1>GUARDIA BAJA</h1>
-        <p class="tagline">¿Qué ocurre cuando el combate más difícil no se libra en el ring?</p>
-    </section>
-
-    <section id="historia">
-        <h2>EL COMBATE INTERNO</h2>
-        <p>Un relato íntimo sobre la herencia emocional, el silencio y la dificultad de romper con los sueños impuestos. "Guardia Baja" explora la realidad de un joven que intenta encontrar su propio camino bajo la presión de las expectativas familiares.</p>
-    </section>
-
     <section id="patrocinio">
-        <h2>ÚNETE AL EQUIPO</h2>
-        <p>Sé parte de esta producción de estudiantes de la UCAB y ayuda a darle vida a esta historia venezolana.</p>
-        <br>
-        <a href="#" class="btn-rojo">VER PLANES DE PATROCINIO</a>
-    </section>
+        <h2>PLANES DE PATROCINIO</h2>
+        <p>Únete a la esquina de "Guardia Baja" y ayúdanos a contar esta historia.</p>
+        
+        <div class="pricing-container">
+            <div class="plan-card">
+                <h3>PRIMER ROUND</h3>
+                <p class="price">$50 USD</p>
+                <ul>
+                    <li>1 Post de agradecimiento</li>
+                    <li>2 Historias de backstage</li>
+                    <li>Logo en el Reel de detrás de cámara</li>
+                    <li>Invitación al estreno</li>
+                </ul>
+            </div>
 
-    <footer>
-        <p>© 2026 Guardia Baja | Caracas - Venezuela</p>
-    </footer>
+            <div class="plan-card">
+                <h3>GOLPE CERTERO</h3>
+                <p class="price">$80 USD</p>
+                <ul>
+                    <li>Todo lo anterior +</li>
+                    <li>Mención en créditos como Patrocinante Oficial</li>
+                    <li>Logo en afiches y flyers</li>
+                    <li>Publicación personalizada</li>
+                </ul>
+            </div>
+
+            <div class="plan-card" style="border-color: #e50914;">
+                <h3>KNOCKOUT</h3>
+                <p class="price">$300 USD</p>
+                <ul>
+                    <li>Todo lo anterior +</li>
+                    <li>Créditos principales</li>
+                    <li>Inclusión en afiche oficial</li>
+                    <li>Mini comercial tipo storytelling</li>
+                    <li>Material exclusivo de backstage</li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <a href="mailto:tuemail@ejemplo.com" class="btn-rojo">QUIERO SER PATROCINADOR</a>
+    </section>
 
 </body>
 </html>
