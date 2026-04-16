@@ -263,7 +263,15 @@
             text-align: center;
             border-top: 2px solid #111;
         }
-
+.social-container {
+            display: flex;
+            flex-direction: row; /* Coloca Instagram y Correo en la misma línea */
+            flex-wrap: wrap; /* Hace que baje si la pantalla es muy pequeña */
+            justify-content: center; /* Centra todo en la pantalla */
+            align-items: center; /* Los alinea perfectamente en el medio */
+            gap: 50px; /* Espacio amplio entre IG y Correo */
+            margin-bottom: 50px;
+        }
        /* --- AJUSTE SIDE-BY-SIDE PARA EL FOOTER --- */
         .social-icon {
             color: #ffffff;
