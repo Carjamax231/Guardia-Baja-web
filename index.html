@@ -141,6 +141,52 @@
             background: #111;
         }
 
+        /* SECCIÓN EL EQUIPO (La Esquina) */
+        #equipo {
+            padding: 100px 20px;
+            background-color: #0a0a0a;
+            text-align: center;
+        }
+        
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .team-member {
+            background: #111;
+            border-left: 3px solid #e50914;
+            padding: 20px 30px;
+            width: 250px;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            background: #1a0000;
+            border-left: 3px solid #ffffff;
+        }
+        
+        .team-member h3 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin: 0 0 5px 0;
+            letter-spacing: 1px;
+        }
+        
+        .team-member .role {
+            font-size: 1.1rem;
+            color: #888;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
         /* Sección de Patrocinio */
         #seccion-patrocinio {
             display: none; 
@@ -237,6 +283,32 @@
     </section>
 
     <section id="seccion-patrocinio">
+
+     <section id="equipo">
+        <h2 class="titulo-seccion">La Esquina</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <h3>Luis Pérez</h3>
+                <p class="role">Director y Guionista</p>
+            </div>
+            <div class="team-member">
+                <h3>Enrique Padrón</h3>
+                <p class="role">Dirección</p>
+            </div>
+            <div class="team-member">
+                <h3>Miguel Pérez</h3>
+                <p class="role">Director de Fotografía</p>
+            </div>
+            <div class="team-member">
+                <h3>Gabriela De Sousa</h3>
+                <p class="role">Productora General</p>
+            </div>
+            <div class="team-member">
+                <h3>Rommel Carrasco</h3>
+                <p class="role">Asistente de Dirección</p>
+            </div>
+        </div>
+    </section>   
         <h2 class="titulo-seccion">Gimnasio de Aliados</h2>
         
         <div class="pricing-container">
@@ -296,7 +368,7 @@
     </section>
 
     <footer>
-        <p>BARQUISIMETO - CARACAS | 2026 | EN PRODUCCIÓN</p>
+        <p>CARACAS - VENEZUELA | 2026 | EN PRODUCCIÓN</p>
     </footer>
 
     <script>
