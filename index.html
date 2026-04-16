@@ -165,6 +165,40 @@
         .recordatorio p { color: #888; font-size: 1.2rem; line-height: 1.6; font-style: italic; }
 
         footer { padding: 60px 20px; color: #444; font-size: 1rem; text-align: center; letter-spacing: 2px; }
+        /* --- AJUSTES DE INTERACTIVIDAD Y MÓVIL --- */
+
+        /* Efecto para las palabras clave (Punto 4) */
+        .tag-cine {
+            transition: 0.3s;
+            cursor: default;
+        }
+        .tag-cine:hover {
+            color: #e50914 !important; 
+            border-color: #e50914 !important;
+            transform: scale(1.1);
+        }
+
+        /* CORRECCIÓN VISIBILIDAD MÓVIL (Punto 2) */
+        @media (max-width: 768px) {
+            .navbar a {
+                margin: 0 5px;
+                font-size: 0.75rem; /* Evita que se amontone como en la captura */
+                letter-spacing: 1px;
+            }
+            h1 {
+                font-size: 3.2rem !important; 
+                letter-spacing: 5px;
+            }
+            .hero-overlay {
+                background: rgba(0, 0, 0, 0.5); 
+            }
+            .team-member {
+                width: 140px; /* Ajuste para que las fotos no se vean desproporcionadas */
+            }
+            .titulo-seccion {
+                font-size: 2.2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -208,13 +242,13 @@
     <section id="equipo">
         <h2 class="titulo-seccion">CONOCE AL EQUIPO</h2>
         <div class="team-container">
-            <div class="team-member"><img src="luis.jpg" alt="Luis Perez"><h3>LUIS PEREZ</h3><p class="role">Director y Guionista</p></div>
-            <div class="team-member"><img src="enrique.jpg" alt="Enrique Padron"><h3>ENRIQUE PADRON</h3><p class="role">Dirección</p></div>
+            <div class="team-member"><img src="luis.jpg" alt="Luis Perez"><h3>LUIS PERÉZ</h3><p class="role">Director y Guionista</p></div>
+            <div class="team-member"><img src="enrique.jpg" alt="Enrique Padron"><h3>ENRIQUE PADRÓN</h3><p class="role">Dirección</p></div>
             <div class="team-member"><img src="rommel.jpg" alt="Rommel Carrasco"><h3>ROMMEL CARRASCO</h3><p class="role">Asistente de Dirección</p></div>
             <div class="team-member"><img src="gabriela.jpg" alt="Gabriela De Sousa"><h3>GABRIELA DE SOUSA</h3><p class="role">Productora General</p></div>
-            <div class="team-member"><img src="miguel.jpg" alt="Miguel Perez"><h3>MIGUEL PEREZ</h3><p class="role">Director de Fotografía y Guionista</p></div>
+            <div class="team-member"><img src="miguel.jpg" alt="Miguel Perez"><h3>MIGUEL PERÉZ</h3><p class="role">Director de Fotografía y Guionista</p></div>
             <div class="team-member"><img src="julian.jpg" alt="Julian Nuñez"><h3>JULIAN NUÑEZ</h3><p class="role">Director de Arte</p></div>
-            <div class="team-member"><img src="ramon.jpg" alt="Ramon Roman"><h3>RAMON ROMAN</h3><p class="role">Sonido</p></div>
+            <div class="team-member"><img src="ramon.jpg" alt="Ramon Roman"><h3>RAMÓN ROMÁN</h3><p class="role">Sonido</p></div>
             <div class="team-member"><img src="kenyer.jpg" alt="Kenyer Quevedo"><h3>KENYER QUEVEDO</h3><p class="role">Sonido</p></div>
         </div>
     </section>
