@@ -1,319 +1,198 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    /* --- ESTILOS OPTIMIZADOS PARA VS CODE Y WORDPRESS --- */
+    @font-face {
+        font-family: 'Zumme Rough';
+        src: url('https://carjamax231.github.io/Guardia-Baja-web/zumme-rough-bold.otf') format('opentype'); 
+        font-weight: bold;
+    }
+
+    /* Envolvemos todo para que WordPress no ensucie el diseño */
+    .guardia-baja-app { 
+        background-color: #000000 !important; 
+        color: #ffffff !important; 
+        font-family: 'Lekton', monospace; 
+        margin: 0; 
+        padding: 0;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        overflow-x: hidden;
+    }
+
+    .guardia-baja-app h1, .guardia-baja-app h2, .guardia-baja-app h3, .guardia-baja-app .btn-rojo, .guardia-baja-app .tag-cine {
+        font-family: 'Zumme Rough', 'Impact', sans-serif;
+        text-transform: uppercase;
+        margin-top: 0;
+    }
+
+    .guardia-baja-app .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 15px 0;
+        text-align: center;
+        z-index: 1000;
+        border-bottom: 1px solid #222;
+    }
+    .guardia-baja-app .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.1rem; 
+        font-weight: bold;
+        letter-spacing: 2px;
+        transition: 0.3s;
+    }
+    .guardia-baja-app .navbar a:hover { color: #e50914; }
+
+    /* --- PORTADA Y CAPAS --- */
+    .guardia-baja-app .hero { 
+        position: relative;
+        height: 100vh; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        text-align: center;
+        overflow: hidden; 
+    }
+
+    .guardia-baja-app #video-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: 0; 
+        transform: translateX(-50%) translateY(-50%);
+        object-fit: cover;
+        filter: brightness(0.6) contrast(1.1); 
+    }
+
+    .guardia-baja-app .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1; 
+    }
+
+    .guardia-baja-app h1 { 
+        position: relative;
+        z-index: 2;
+        font-size: clamp(4rem, 12vw, 8rem); 
+        color: #e50914; 
+        margin: 0; 
+        letter-spacing: 10px; 
+        line-height: 1;
+        text-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
+
+    .guardia-baja-app .tagline { 
+        position: relative;
+        z-index: 2;
+        font-size: 1.3rem; 
+        color: #eee; 
+        margin-top: 20px; 
+        max-width: 700px;
+        letter-spacing: 1px;
+        padding: 0 20px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+    }
+
+    .guardia-baja-app .btn-rojo { 
+        position: relative;
+        z-index: 2;
+        margin-top: 40px;
+        display: inline-block;
+        background-color: #e50914 !important; 
+        color: white !important; 
+        padding: 18px 40px; 
+        font-size: 1.2rem;
+        border: none;
+        cursor: pointer;
+        letter-spacing: 2px;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+    .guardia-baja-app .btn-rojo:hover { background-color: #ffffff !important; color: #000000 !important; }
+
+    /* --- HISTORIA --- */
+    .guardia-baja-app #sinopsis, .guardia-baja-app #casting { padding: 100px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
+    .guardia-baja-app .titulo-seccion { font-size: 3.5rem; letter-spacing: 3px; color: #e50914; margin-bottom: 40px; }
+    .guardia-baja-app .texto-historia { font-size: 1.3rem; color: #bbb; line-height: 1.8; text-align: justify; margin-bottom: 30px; }
     
-    <link rel="icon" type="image/png" href="https://carjamax231.github.io/Guardia-Baja-web/favicon.png">
+    .guardia-baja-app .tags-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px; }
+    .guardia-baja-app .tag-cine { border: 1px solid #444; padding: 10px 20px; font-size: 1.2rem; letter-spacing: 2px; color: #fff; background: #111; transition: 0.3s; cursor: default; }
+    .guardia-baja-app .tag-cine:hover { color: #e50914 !important; border-color: #e50914 !important; transform: scale(1.1); }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lekton:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    /* --- EQUIPO --- */
+    .guardia-baja-app #equipo { padding: 100px 20px; background-color: #0a0a0a; text-align: center; }
+    .guardia-baja-app .team-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto; }
+    .guardia-baja-app .team-member { background: #111; border-left: 3px solid #e50914; padding: 20px; width: 250px; text-align: center; transition: transform 0.3s; }
+    .guardia-baja-app .team-member:hover { transform: translateY(-5px); background: #1a0000; border-left: 3px solid #ffffff; }
+    .guardia-baja-app .team-member img { width: 100%; aspect-ratio: 1/1; object-fit: cover; margin-bottom: 15px; filter: grayscale(100%) contrast(120%); transition: 0.3s; }
+    .guardia-baja-app .team-member:hover img { filter: grayscale(0%); }
+    .guardia-baja-app .team-member h3 { font-size: 1.8rem; color: #fff; margin: 0 0 5px 0; letter-spacing: 1px; }
+    .guardia-baja-app .team-member .role { font-size: 1rem; color: #888; margin: 0; text-transform: uppercase; font-weight: bold; }
 
-    <style>
-        @font-face {
-            font-family: 'Zumme Rough';
-            src: url('https://carjamax231.github.io/Guardia-Baja-web/zumme-rough-bold.otf') format('opentype'); 
-            font-weight: bold;
-        }
+    /* --- CASTING --- */
+    .guardia-baja-app #casting { background-color: #0d0d0d; border-top: 1px dashed #333; border-bottom: 1px dashed #333; max-width: 100%; }
+    .guardia-baja-app .casting-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: 40px auto; }
+    .guardia-baja-app .casting-card { background: #111; border: 1px solid #333; padding: 25px; text-align: left; position: relative; }
+    .guardia-baja-app .casting-card::before { content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%) rotate(-2deg); width: 60px; height: 12px; background: rgba(255,255,255,0.15); } 
+    .guardia-baja-app .casting-card h3 { color: #e50914; font-size: 2rem; margin-top: 0; letter-spacing: 2px; }
+    .guardia-baja-app .casting-card ul { list-style: none; padding: 0; color: #bbb; font-size: 1.1rem; line-height: 1.6; }
+    .guardia-baja-app .casting-card li strong { color: #fff; }
+    .guardia-baja-app .btn-pulse { animation: pulse 2s infinite; display: inline-block; margin-top: 40px; }
+    @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(229, 9, 20, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0); } }
+    .guardia-baja-app .contacto-casting { margin-top: 40px; font-size: 1.2rem; color: #888; font-family: 'Lekton', monospace;}
+    .guardia-baja-app .contacto-casting span { color: #fff; font-weight: bold; }
 
-        body { 
-            background-color: #000000; 
-            color: #ffffff; 
-            font-family: 'Lekton', monospace; 
-            margin: 0; 
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+    /* --- PATROCINIO --- */
+    .guardia-baja-app #seccion-patrocinio { padding: 100px 20px; background-color: #050505; }
+    .guardia-baja-app .pricing-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; }
+    .guardia-baja-app .plan-card { background: #111; border: 1px solid #222; padding: 30px; display: flex; flex-direction: column; transition: 0.3s; }
+    .guardia-baja-app .plan-card:hover { border-color: #e50914; background: #161616; }
+    .guardia-baja-app .plan-card h3 { color: #e50914; font-size: 2rem; margin-bottom: 5px; }
+    .guardia-baja-app .plan-card h4 { font-size: 1.2rem; color: #555; text-transform: uppercase; margin-bottom: 20px; font-family: 'Lekton', monospace; font-weight: bold; }
+    .guardia-baja-app .price { font-size: 2rem; font-weight: bold; margin: 15px 0; color: #ffffff; }
+    .guardia-baja-app .plan-card ul { list-style: none; padding: 0; color: #bbb; font-size: 1.1rem; line-height: 1.5; flex-grow: 1; text-align: left; }
+    .guardia-baja-app .plan-card li { margin-bottom: 12px; position: relative; padding-left: 25px; }
+    .guardia-baja-app .plan-card li::before { content: "🥊"; position: absolute; left: 0; font-size: 0.8rem; top: 3px; }
+    .guardia-baja-app .recordatorio { max-width: 800px; margin: 60px auto 0; text-align: center; border-top: 1px solid #222; padding-top: 40px; }
+    .guardia-baja-app .recordatorio h5 { font-family: 'Zumme Rough', 'Impact', sans-serif; color: #e50914; font-size: 2rem; margin-bottom: 20px; }
+    .guardia-baja-app .recordatorio p { color: #888; font-size: 1.2rem; line-height: 1.6; font-style: italic; }
 
-        h1, h2, h3, .btn-rojo, .tag-cine {
-            font-family: 'Zumme Rough', 'Impact', sans-serif;
-            text-transform: uppercase;
-        }
+    /* --- FOOTER & CONTACTO --- */
+    .guardia-baja-app #contacto { padding: 80px 20px 40px; background-color: #050505; text-align: center; border-top: 2px solid #111; }
+    .guardia-baja-app .social-container { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 50px; margin-bottom: 50px; }
+    .guardia-baja-app .social-icon { color: #ffffff; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 15px; text-decoration: none; }
+    .guardia-baja-app .social-icon svg { width: 35px; height: 35px; fill: currentColor; }
+    .guardia-baja-app .social-icon span { font-family: 'Lekton', monospace; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+    .guardia-baja-app .social-icon:hover { color: #e50914; transform: scale(1.05); }
+    .guardia-baja-app .creditos-footer { color: #444; font-size: 0.9rem; letter-spacing: 3px; font-family: 'Lekton', monospace; text-transform: uppercase; }
 
-        /* NAVEGACIÓN */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 15px 0;
-            text-align: center;
-            z-index: 1000;
-            border-bottom: 1px solid #222;
-        }
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1rem; 
-            font-weight: bold;
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
-        .navbar a:hover { color: #e50914; }
+    /* --- MÓVIL --- */
+    @media (max-width: 768px) {
+        .guardia-baja-app .navbar a { margin: 0 5px; font-size: 0.75rem; letter-spacing: 1px; }
+        .guardia-baja-app h1 { font-size: 3.2rem !important; letter-spacing: 5px; }
+        .guardia-baja-app .hero-overlay { background: rgba(0, 0, 0, 0.5); }
+        .guardia-baja-app .team-member { width: 140px; }
+        .guardia-baja-app .titulo-seccion { font-size: 2.2rem; }
+        .guardia-baja-app .social-container { gap: 25px; flex-direction: column; } /* En móviles bajan para no amontonarse */
+    }
+</style>
 
-        /* PORTADA CON VIDEO (VIDEO HERO) */
-        .hero { 
-            position: relative;
-            height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center;
-            overflow: hidden; /* Para que el video no se salga */
-        }
-
-        /* El video de fondo */
-        #video-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -2;
-            transform: translateX(-50%) translateY(-50%);
-            object-fit: cover;
-            filter: brightness(0.6) contrast(1.1); /* Lo oscurecemos un poco desde aquí */
-        }
-
-        /* Capa oscura extra para legibilidad */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: -1;
-        }
-
-        h1 { 
-            font-size: clamp(4rem, 12vw, 8rem); 
-            color: #e50914; 
-            margin: 0; 
-            letter-spacing: 10px; 
-            line-height: 1;
-            text-shadow: 0 0 20px rgba(0,0,0,0.8);
-        }
-
-        .tagline { 
-            font-size: 1.3rem; 
-            color: #eee; /* Un poco más claro para resaltar sobre el video */
-            margin-top: 20px; 
-            max-width: 700px;
-            letter-spacing: 1px;
-            padding: 0 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
-        }
-
-        .btn-rojo { 
-            margin-top: 40px;
-            display: inline-block;
-            background-color: #e50914 !important; 
-            color: white; 
-            padding: 18px 40px; 
-            font-size: 1.2rem;
-            border: none;
-            cursor: pointer;
-            letter-spacing: 2px;
-            transition: 0.3s;
-            text-decoration: none;
-        }
-        .btn-rojo:hover { background-color: #ffffff !important; color: #000000; }
-
-        /* SINOPSIS */
-        #sinopsis {
-            padding: 100px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .titulo-seccion { font-size: 3.5rem; letter-spacing: 3px; color: #e50914; margin-bottom: 40px; }
-        .texto-historia { font-size: 1.3rem; color: #bbb; line-height: 1.8; text-align: justify; margin-bottom: 30px; }
-        
-        .tags-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px; }
-        .tag-cine { border: 1px solid #444; padding: 10px 20px; font-size: 1.2rem; letter-spacing: 2px; color: #fff; background: #111; }
-
-        /* EQUIPO */
-        #equipo { padding: 100px 20px; background-color: #0a0a0a; text-align: center; }
-        .team-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .team-member { background: #111; border-left: 3px solid #e50914; padding: 20px; width: 250px; text-align: center; transition: transform 0.3s; }
-        .team-member:hover { transform: translateY(-5px); background: #1a0000; border-left: 3px solid #ffffff; }
-        .team-member img { width: 100%; aspect-ratio: 1/1; object-fit: cover; margin-bottom: 15px; filter: grayscale(100%) contrast(120%); transition: 0.3s; }
-        .team-member:hover img { filter: grayscale(0%); }
-        .team-member h3 { font-size: 1.8rem; color: #fff; margin: 0 0 5px 0; letter-spacing: 1px; }
-        .team-member .role { font-size: 1rem; color: #888; margin: 0; text-transform: uppercase; font-weight: bold; }
-
-        /* PATROCINIO */
-        #seccion-patrocinio { padding: 100px 20px; background-color: #050505; }
-        .pricing-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; }
-        .plan-card { background: #111; border: 1px solid #222; padding: 30px; display: flex; flex-direction: column; transition: 0.3s; }
-        .plan-card:hover { border-color: #e50914; background: #161616; }
-        .plan-card h3 { color: #e50914; font-size: 2rem; margin-bottom: 5px; }
-        .plan-card h4 { font-size: 1.2rem; color: #555; text-transform: uppercase; margin-bottom: 20px; font-family: 'Lekton', monospace; font-weight: bold; }
-        .price { font-size: 2rem; font-weight: bold; margin: 15px 0; color: #ffffff; }
-        .plan-card ul { list-style: none; padding: 0; color: #bbb; font-size: 1.1rem; line-height: 1.5; flex-grow: 1; }
-        .plan-card li { margin-bottom: 12px; position: relative; padding-left: 25px; }
-        .plan-card li::before { content: "🥊"; position: absolute; left: 0; font-size: 0.8rem; top: 3px; }
-
-        .recordatorio { max-width: 800px; margin: 60px auto 0; text-align: center; border-top: 1px solid #222; padding-top: 40px; }
-        .recordatorio h5 { font-family: 'Zumme Rough', 'Impact', sans-serif; color: #e50914; font-size: 2rem; margin-bottom: 20px; }
-        .recordatorio p { color: #888; font-size: 1.2rem; line-height: 1.6; font-style: italic; }
-
-        footer { padding: 60px 20px; color: #444; font-size: 1rem; text-align: center; letter-spacing: 2px; }
-        /* --- AJUSTES DE INTERACTIVIDAD Y MÓVIL --- */
-
-        /* Efecto para las palabras clave (Punto 4) */
-        .tag-cine {
-            transition: 0.3s;
-            cursor: default;
-        }
-        .tag-cine:hover {
-            color: #e50914 !important; 
-            border-color: #e50914 !important;
-            transform: scale(1.1);
-        }
-
-        /* CORRECCIÓN VISIBILIDAD MÓVIL (Punto 2) */
-        @media (max-width: 768px) {
-            .navbar a {
-                margin: 0 5px;
-                font-size: 0.75rem; /* Evita que se amontone como en la captura */
-                letter-spacing: 1px;
-            }
-            h1 {
-                font-size: 3.2rem !important; 
-                letter-spacing: 5px;
-            }
-            .hero-overlay {
-                background: rgba(0, 0, 0, 0.5); 
-            }
-            .team-member {
-                width: 140px; /* Ajuste para que las fotos no se vean desproporcionadas */
-            }
-            .titulo-seccion {
-                font-size: 2.2rem;
-            }
-        }
-
-        /* --- SECCIÓN CASTING ABIERTO --- */
-        #casting { 
-            padding: 100px 20px; 
-            background-color: #0d0d0d; 
-            text-align: center; 
-            border-top: 1px dashed #333; 
-            border-bottom: 1px dashed #333; 
-        }
-        
-        .casting-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-            gap: 20px; 
-            max-width: 1000px; 
-            margin: 40px auto; 
-        }
-        
-        .casting-card { 
-            background: #111; 
-            border: 1px solid #333; 
-            padding: 25px; 
-            text-align: left; 
-            position: relative; 
-        }
-        
-        /* Efecto de cinta adhesiva */
-        .casting-card::before { 
-            content: ''; 
-            position: absolute; 
-            top: -6px; 
-            left: 50%; 
-            transform: translateX(-50%) rotate(-2deg);
-            width: 60px; 
-            height: 12px; 
-            background: rgba(255,255,255,0.15); 
-        } 
-        
-        .casting-card h3 { color: #e50914; font-size: 2rem; margin-top: 0; letter-spacing: 2px; }
-        .casting-card ul { list-style: none; padding: 0; color: #bbb; font-size: 1.1rem; line-height: 1.6; }
-        .casting-card li strong { color: #fff; }
-        
-        /* Animación de latido para el botón */
-        .btn-pulse { 
-            animation: pulse 2s infinite; 
-            display: inline-block; 
-            margin-top: 40px; 
-        }
-        
-        @keyframes pulse { 
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7); } 
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(229, 9, 20, 0); } 
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0); } 
-        }
-        
-        .contacto-casting { margin-top: 40px; font-size: 1.2rem; color: #888; font-family: 'Lekton', monospace;}
-        .contacto-casting span { color: #fff; font-weight: bold; }
-        /* --- SECCIÓN CONTACTO Y FOOTER --- */
-        #contacto {
-            padding: 80px 20px 40px;
-            background-color: #050505;
-            text-align: center;
-            border-top: 2px solid #111;
-        }
-.social-container {
-            display: flex;
-            flex-direction: row; /* Coloca Instagram y Correo en la misma línea */
-            flex-wrap: wrap; /* Hace que baje si la pantalla es muy pequeña */
-            justify-content: center; /* Centra todo en la pantalla */
-            align-items: center; /* Los alinea perfectamente en el medio */
-            gap: 50px; /* Espacio amplio entre IG y Correo */
-            margin-bottom: 50px;
-        }
-       /* --- AJUSTE SIDE-BY-SIDE PARA EL FOOTER --- */
-        .social-icon {
-            color: #ffffff;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            flex-direction: row; /* ¡ESTE ES EL CAMBIO MÁGICO! Uno al lado del otro */
-            align-items: center; /* Alineación vertical perfecta */
-            justify-content: center; /* Centramos el bloque entero en la página */
-            gap: 15px; /* Espacio horizontal entre el ícono y el texto */
-            text-decoration: none; /* Quita la raya azul de los enlaces */
-        }
-        
-        /* Ajuste ligero del tamaño del SVG para que combine con el texto */
-        .social-icon svg {
-            width: 35px; /* Un poco más pequeño para visualmente "pesar" igual que el texto */
-            height: 35px;
-            fill: currentColor;
-        }
-
-        .social-icon span {
-            font-family: 'Lekton', monospace;
-            font-size: 1.2rem; /* Un pelín más grande para que sea legible */
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        /* Efecto de encendido en rojo sigue funcionando igual */
-        .social-icon:hover {
-            color: #e50914; 
-            transform: scale(1.05); /* Un crecimiento más sutil para no desarmar la línea */
-        }
-
-        .creditos-footer {
-            color: #444; 
-            font-size: 0.9rem; 
-            letter-spacing: 3px; 
-            font-family: 'Lekton', monospace;
-            text-transform: uppercase;
-        }
-    </style>
-</head>
-<body>
+<div class="guardia-baja-app">
 
     <nav class="navbar">
         <a href="#inicio">Inicio</a>
@@ -326,7 +205,7 @@
 
     <section id="inicio" class="hero">
         <video autoplay muted loop playsinline id="video-bg">
-            <source src="trailer.mp4" type="video/mp4">
+            <source src="https://carjamax231.github.io/Guardia-Baja-web/trailer.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         
@@ -343,7 +222,6 @@
         <p class="texto-historia">
             En los últimos rounds, el combate deja de ser solo deportivo y se convierte en un enfrentamiento interno, donde Jesús deberá decidir si pelea por cumplir el sueño de otro o por encontrar, finalmente, el suyo.
         </p>
-
         <div class="tags-container">
             <div class="tag-cine">FRACASO</div>
             <div class="tag-cine">VULNERABILIDAD</div>
@@ -356,64 +234,34 @@
     <section id="equipo">
         <h2 class="titulo-seccion">CONOCE AL EQUIPO</h2>
         <div class="team-container">
-            <div class="team-member"><img src="luis.jpg" alt="Luis Perez"><h3>LUIS PERÉZ</h3><p class="role">Director y Guionista</p></div>
-            <div class="team-member"><img src="enrique.jpg" alt="Enrique Padron"><h3>ENRIQUE PADRÓN</h3><p class="role">Dirección</p></div>
-            <div class="team-member"><img src="rommel.jpg" alt="Rommel Carrasco"><h3>ROMMEL CARRASCO</h3><p class="role">Asistente de Dirección</p></div>
-            <div class="team-member"><img src="gabriela.jpg" alt="Gabriela De Sousa"><h3>GABRIELA DE SOUSA</h3><p class="role">Productora General</p></div>
-            <div class="team-member"><img src="miguel.jpg" alt="Miguel Perez"><h3>MIGUEL PERÉZ</h3><p class="role">Director de Fotografía y Guionista</p></div>
-            <div class="team-member"><img src="julian.jpg" alt="Julian Nuñez"><h3>JULIAN NUÑEZ</h3><p class="role">Director de Arte</p></div>
-            <div class="team-member"><img src="ramon.jpg" alt="Ramon Roman"><h3>RAMÓN ROMÁN</h3><p class="role">Sonido</p></div>
-            <div class="team-member"><img src="kenyer.jpg" alt="Kenyer Quevedo"><h3>KENYER QUEVEDO</h3><p class="role">Sonido</p></div>
+            <div class="team-member"><img src="https://carjamax231.github.io/Guardia-Baja-web/luis.jpg" alt="Luis Perez"><h3>LUIS PÉREZ</h3><p class="role">Director y Guionista</p></div>
+            <div class="team-member"><img src="https://carjamax231.github.io/Guardia-Baja-web/enrique.jpg" alt="Enrique Padron"><h3>ENRIQUE PADRÓN</h3><p class="role">Dirección</p></div>
+            <div class="team-member"><img src="https://carjamax231.github.io/Guardia-Baja-web/rommel.jpg" alt="Rommel Carrasco"><h3>ROMMEL CARRASCO</h3><p class="role">Asistente de Dirección</p></div>
+            <div class="team-member"><img src="https://carjamax231.github.io/Guardia-Baja-web/gabriela.jpg" alt="Gabriela De Sousa"><h3>GABRIELA DE SOUSA</h3><p class="role">Productora General</p></div>
+            <div class="team-member"><img src="https://carjamax231.github.io/Guardia-Baja-web/miguel.jpg" alt="Miguel Perez"><h3>MIGUEL PÉREZ</h3><p class="role">Director de Fotografía y Guionista</p></div>
+            <div class="team-member"><img src="https://carjamax231.github.io/Guardia-Baja-web/julian.jpg" alt="Julian Nuñez"><h3>JULIÁN NÚÑEZ</h3><p class="role">Director de Arte</p></div>
+            <div class="team-member"><img src="https://carjamax231.github.io/Guardia-Baja-web/ramon.jpg" alt="Ramon Roman"><h3>RAMÓN ROMÁN</h3><p class="role">Sonido</p></div>
+            <div class="team-member"><img src="https://carjamax231.github.io/Guardia-Baja-web/kenyer.jpg" alt="Kenyer Quevedo"><h3>KENYER QUEVEDO</h3><p class="role">Sonido</p></div>
         </div>
     </section>
-<section id="casting">
-        <h2 class="titulo-seccion">ÚNETE A LA ESQUINA (CASTING)</h2>
-        
-        <div class="casting-grid">
-            <div class="casting-card">
-                <h3>JESÚS / DAVID</h3>
-                <ul>
-                    <li><strong>Edad:</strong> 21 a 25 años</li>
-                    <li><strong>Contextura:</strong> Atlética</li>
-                </ul>
-            </div>
-            
-            <div class="casting-card">
-                <h3>JULIO</h3>
-                <ul>
-                    <li><strong>Edad:</strong> 40 a 55 años</li>
-                    <li><strong>Contextura:</strong> Media / Atlética</li>
-                    <li><strong>Tez:</strong> Trigueña</li>
-                </ul>
-            </div>
-            
-            <div class="casting-card">
-                <h3>MARÍA</h3>
-                <ul>
-                    <li><strong>Edad:</strong> 20 a 25 años</li>
-                    <li><strong>Contextura:</strong> Media / Atlética</li>
-                </ul>
-            </div>
-            
-            <div class="casting-card">
-                <h3>RÉFERI</h3>
-                <ul>
-                    <li><strong>Edad:</strong> 35 años en adelante</li>
-                    <li><strong>Contextura:</strong> Atlética</li>
-                    <li><strong>Requisito:</strong> Conocimiento en boxeo (Demostrable)</li>
-                </ul>
-            </div>
-        </div>
 
+    <section id="casting">
+        <h2 class="titulo-seccion">ÚNETE A LA ESQUINA (CASTING)</h2>
+        <div class="casting-grid">
+            <div class="casting-card"><h3>JESÚS / DAVID</h3><ul><li><strong>Edad:</strong> 21 a 25 años</li><li><strong>Contextura:</strong> Atlética</li></ul></div>
+            <div class="casting-card"><h3>JULIO</h3><ul><li><strong>Edad:</strong> 40 a 55 años</li><li><strong>Contextura:</strong> Media / Atlética</li><li><strong>Tez:</strong> Trigueña</li></ul></div>
+            <div class="casting-card"><h3>MARÍA</h3><ul><li><strong>Edad:</strong> 20 a 25 años</li><li><strong>Contextura:</strong> Media / Atlética</li></ul></div>
+            <div class="casting-card"><h3>RÉFERI</h3><ul><li><strong>Edad:</strong> 35 años en adelante</li><li><strong>Contextura:</strong> Atlética</li><li><strong>Requisito:</strong> Conocimiento en boxeo (Demostrable)</li></ul></div>
+        </div>
         <a href="https://docs.google.com/forms/d/1IQJresLvQr94sdr5CinwGDoQYpIKeUrSz7weCBY7Qxg/viewform" target="_blank" class="btn-rojo btn-pulse">POSTULARSE AL CASTING</a>
-        
         <p class="contacto-casting">¿Dudas? Comunícate con nuestra esquina:<br> <span>0414-3559820</span> | <span>0424-2179360</span></p>
     </section>
+
     <section id="seccion-patrocinio">
         <h2 class="titulo-seccion">GIMNASIO DE ALIADOS</h2>
         <div class="pricing-container">
-            <div class="plan-card"><h3>PRIMER ROUND</h3><h4>Plan de $50 USD</h4><ul><li>1 post en el feed (foto o video) agradeciendo y mencionando a la marca</li><li>2 historias durante el rodaje (backstage) con mención directa</li><li>1 reel con material del detrás de cámara</li><li>Presencia en historia destacada permanente ("Aliados")</li><li>Invitación al estreno del cortometraje</li></ul></div>
-            <div class="plan-card"><h3>GOLPE CERTERO</h3><h4>Plan de $80 USD</h4><ul><li><strong>Todo lo del Plan Primer Round, más:</strong></li><li>Mención especial en los créditos como Patrocinante Oficial</li><li>Inclusión del logo en materiales promocionales</li><li>1 publicación personalizada adaptada a la estética de la marca</li><li>Invitación al estreno</li></ul></div>
+            <div class="plan-card"><h3>PRIMER ROUND</h3><h4>Plan de $50 USD</h4><ul><li>1 post en el feed agradeciendo y mencionando a la marca</li><li>2 historias durante el rodaje con mención directa</li><li>1 reel con material del detrás de cámara</li><li>Presencia en historia destacada ("Aliados")</li><li>Invitación al estreno del cortometraje</li></ul></div>
+            <div class="plan-card"><h3>GOLPE CERTERO</h3><h4>Plan de $80 USD</h4><ul><li><strong>Todo lo del Plan Primer Round, más:</strong></li><li>Mención especial en los créditos como Patrocinante Oficial</li><li>Inclusión del logo en materiales promocionales</li><li>1 publicación personalizada adaptada a la marca</li><li>Invitación al estreno</li></ul></div>
             <div class="plan-card"><h3>ESQUINA DEL CAMPEON</h3><h4>Plan de $120 USD</h4><ul><li>Presencia del producto/servicio dentro del cortometraje</li><li>Mención visual del logo dentro de escena</li><li>Mención en créditos como Colaborador Creativo</li><li>Video informal de agradecimiento del equipo</li><li>Acceso anticipado al tráiler + invitación al estreno</li></ul></div>
             <div class="plan-card" style="border-color: #e50914;"><h3>KNOCKOUT</h3><h4>Plan de $300 USD</h4><ul><li><strong>Presencia destacada:</strong> Logo al final, Créditos principales, Afiche oficial</li><li>Video especial (30-60 seg) adaptado al estilo de la marca</li><li>Mini comercial (≤25 seg) tipo storytelling</li><li><strong>Material exclusivo:</strong> Fotos backstage, Diseños personalizados</li></ul></div>
         </div>
@@ -424,25 +272,22 @@
         </div>
     </section>
 
-   <footer id="contacto">
+    <footer id="contacto">
         <h2 class="titulo-seccion" style="font-size: 2.5rem; margin-bottom: 50px;">EL CAMPANAZO FINAL</h2>
         
         <div class="social-container">
             <a href="https://www.instagram.com/guardiabajacorto/" target="_blank" class="social-icon" aria-label="Instagram">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.012-3.584.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.012-3.584.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 <span>@guardiabajacorto</span>
             </a>
-
-            <a href="mailto:contacto@guardiabaja.com" class="social-icon" aria-label="Correo">
-                <svg viewBox="0 0 24 24">
-                    <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
-                </svg>
+            
+            <a href="mailto:guardiabajacorto@gmail.com" class="social-icon" aria-label="Correo">
+                <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                <span>guardiabajacorto@gmail.com</span>
             </a>
         </div>
-
-        <p class="creditos-footer">CARACAS - VENEZUELA | 2026 | EN PRODUCCIÓN</p>
+        
+        <p class="creditos-footer">BARQUISIMETO - CARACAS | 2026 | EN PRODUCCIÓN</p>
     </footer>
-</body>
-</html>
+
+</div>
