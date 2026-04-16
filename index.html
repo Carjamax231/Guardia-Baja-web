@@ -3,18 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/png" href="https://carjamax231.github.io/Guardia-Baja-web/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lekton:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
+        /* FUENTE ZUMME (Alojada en tu GitHub, funciona en WordPress) */
+        @font-face {
+            font-family: 'Zumme Rough';
+            src: url('https://carjamax231.github.io/Guardia-Baja-web/zumme-rough-bold.otf') format('opentype'); 
+            font-weight: bold;
+        }
+
         /* Estética Cine: Negro y Rojo */
         body { 
             background-color: #000000; 
             color: #ffffff; 
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            font-family: 'Lekton', monospace; 
             margin: 0; 
             overflow-x: hidden;
-            scroll-behavior: smooth; /* Esto hace la magia del deslizamiento suave */
+            scroll-behavior: smooth;
         }
 
-        /* MENÚ DE NAVEGACIÓN PARA LUIS */
+        /* Aplicando ZUMME a todos los títulos y botones */
+        h1, h2, h3, .btn-rojo, .tag-cine {
+            font-family: 'Zumme Rough', 'Impact', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* MENÚ DE NAVEGACIÓN */
         .navbar {
             position: fixed;
             top: 0;
@@ -29,10 +49,11 @@
             color: #fff;
             text-decoration: none;
             margin: 0 15px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
+            font-size: 1.1rem; 
+            font-weight: bold;
             letter-spacing: 2px;
             transition: 0.3s;
+            font-family: 'Lekton', monospace;
         }
         .navbar a:hover { color: #e50914; }
 
@@ -49,20 +70,19 @@
         }
 
         h1 { 
-            font-size: clamp(3rem, 10vw, 6rem); 
+            font-size: clamp(4rem, 12vw, 8rem); 
             color: #e50914; 
             margin: 0; 
-            letter-spacing: 15px; 
-            text-transform: uppercase;
-            font-weight: 900;
+            letter-spacing: 10px; 
+            line-height: 1;
         }
 
         .tagline { 
-            font-size: 1.1rem; 
+            font-size: 1.3rem; 
             color: #888; 
             margin-top: 20px; 
             max-width: 700px;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             padding: 0 20px;
         }
 
@@ -71,17 +91,16 @@
             background-color: #e50914 !important; 
             color: white; 
             padding: 18px 40px; 
-            font-weight: bold; 
+            font-size: 1.2rem;
             border: none;
             cursor: pointer;
-            text-transform: uppercase;
             letter-spacing: 2px;
             transition: 0.3s;
         }
 
         .btn-rojo:hover { background-color: #ffffff !important; color: #000000; }
 
-        /* NUEVA SECCIÓN: SINOPSIS Y CONCEPTO */
+        /* SINOPSIS Y CONCEPTO */
         #sinopsis {
             padding: 100px 20px;
             max-width: 900px;
@@ -90,15 +109,14 @@
         }
 
         .titulo-seccion {
-            font-size: 2.5rem; 
-            letter-spacing: 5px; 
+            font-size: 3.5rem; 
+            letter-spacing: 3px; 
             color: #e50914; 
             margin-bottom: 40px;
-            text-transform: uppercase;
         }
 
         .texto-historia {
-            font-size: 1.1rem;
+            font-size: 1.3rem; 
             color: #bbb;
             line-height: 1.8;
             text-align: justify;
@@ -117,10 +135,9 @@
         .tag-cine {
             border: 1px solid #444;
             padding: 10px 20px;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
             color: #fff;
-            text-transform: uppercase;
             background: #111;
         }
 
@@ -155,12 +172,22 @@
         }
 
         .plan-card:hover { border-color: #e50914; background: #161616; }
-        .plan-card h3 { color: #e50914; font-size: 1.2rem; letter-spacing: 1px; margin-bottom: 5px; }
-        .plan-card h4 { font-size: 0.9rem; color: #555; text-transform: uppercase; margin-bottom: 20px; }
-        .price { font-size: 1.8rem; font-weight: bold; margin: 15px 0; color: #ffffff; }
-        .plan-card ul { list-style: none; padding: 0; color: #bbb; font-size: 0.85rem; line-height: 1.5; flex-grow: 1; }
-        .plan-card li { margin-bottom: 12px; position: relative; padding-left: 20px; }
-        .plan-card li::before { content: "🥊"; position: absolute; left: 0; font-size: 0.7rem; top: 3px; }
+        
+        .plan-card h3 { color: #e50914; font-size: 2rem; margin-bottom: 5px; }
+        
+        .plan-card h4 { 
+            font-size: 1.2rem; 
+            color: #555; 
+            text-transform: uppercase; 
+            margin-bottom: 20px;
+            font-family: 'Lekton', monospace;
+            font-weight: bold;
+        }
+        
+        .price { font-size: 2rem; font-weight: bold; margin: 15px 0; color: #ffffff; }
+        .plan-card ul { list-style: none; padding: 0; color: #bbb; font-size: 1.1rem; line-height: 1.5; flex-grow: 1; }
+        .plan-card li { margin-bottom: 12px; position: relative; padding-left: 25px; }
+        .plan-card li::before { content: "🥊"; position: absolute; left: 0; font-size: 0.8rem; top: 3px; }
 
         .recordatorio {
             max-width: 800px;
@@ -169,10 +196,10 @@
             border-top: 1px solid #222;
             padding-top: 40px;
         }
-        .recordatorio h5 { color: #e50914; font-size: 1rem; letter-spacing: 2px; margin-bottom: 20px; }
-        .recordatorio p { color: #888; font-size: 0.9rem; line-height: 1.6; font-style: italic; }
+        .recordatorio h5 { font-family: 'Zumme Rough', 'Impact', sans-serif; color: #e50914; font-size: 2rem; margin-bottom: 20px; }
+        .recordatorio p { color: #888; font-size: 1.2rem; line-height: 1.6; font-style: italic; }
 
-        footer { padding: 60px 20px; color: #444; font-size: 0.7rem; text-align: center; letter-spacing: 2px; }
+        footer { padding: 60px 20px; color: #444; font-size: 1rem; text-align: center; letter-spacing: 2px; }
     </style>
 </head>
 <body>
@@ -214,8 +241,8 @@
         
         <div class="pricing-container">
             <div class="plan-card">
-                <h3>PLAN 1: PRIMER ROUND</h3>
-                <h4>¿Qué incluye?</h4>
+                <h3>PRIMER ROUND</h3>
+                <h4>Plan de $50 USD</h4>
                 <ul>
                     <li>1 post en el feed (foto o video) agradeciendo y mencionando a la marca</li>
                     <li>2 historias durante el rodaje (backstage) con mención directa</li>
@@ -223,12 +250,11 @@
                     <li>Presencia en historia destacada permanente ("Aliados")</li>
                     <li>Invitación al estreno del cortometraje</li>
                 </ul>
-                <p class="price">$50 USD</p>
             </div>
 
             <div class="plan-card">
-                <h3>PLAN 2: GOLPE CERTERO</h3>
-                <h4>¿Qué incluye?</h4>
+                <h3>GOLPE CERTERO</h3>
+                <h4>Plan de $80 USD</h4>
                 <ul>
                     <li><strong>Todo lo del Plan Primer Round, más:</strong></li>
                     <li>Mención especial en los créditos como Patrocinante Oficial</li>
@@ -236,12 +262,11 @@
                     <li>1 publicación personalizada adaptada a la estética de la marca</li>
                     <li>Invitación al estreno</li>
                 </ul>
-                <p class="price">$80 USD</p>
             </div>
 
             <div class="plan-card">
-                <h3>PLAN 3: ESQUINA DEL CAMPEÓN</h3>
-                <h4>¿Qué incluye?</h4>
+                <h3>ESQUINA DEL CAMPEÓN</h3>
+                <h4>Plan de $120 USD</h4>
                 <ul>
                     <li>Presencia del producto/servicio dentro del cortometraje</li>
                     <li>Mención visual del logo dentro de escena</li>
@@ -249,19 +274,17 @@
                     <li>Video informal de agradecimiento del equipo</li>
                     <li>Acceso anticipado al tráiler + invitación al estreno</li>
                 </ul>
-                <p class="price">$120 USD</p>
             </div>
 
             <div class="plan-card" style="border-color: #e50914;">
-                <h3>PLAN 4: KNOCKOUT</h3>
-                <h4>¿Qué incluye?</h4>
+                <h3>KNOCKOUT</h3>
+                <h4>Plan de $300 USD</h4>
                 <ul>
                     <li><strong>Presencia destacada:</strong> Logo al final, Créditos principales, Afiche oficial</li>
                     <li>Video especial (30-60 seg) adaptado al estilo de la marca</li>
                     <li>Mini comercial (≤25 seg) tipo storytelling</li>
                     <li><strong>Material exclusivo:</strong> Fotos backstage, Diseños personalizados</li>
                 </ul>
-                <p class="price">$300 USD</p>
             </div>
         </div>
 
@@ -280,9 +303,8 @@
         function mostrarPatrocinio() {
             var x = document.getElementById("seccion-patrocinio");
             x.style.display = "block";
-            // Desplazamiento suave a la sección
             window.scrollTo({
-                top: x.offsetTop - 60, // Restamos 60px por la barra de navegación
+                top: x.offsetTop - 60,
                 behavior: 'smooth'
             });
         }
