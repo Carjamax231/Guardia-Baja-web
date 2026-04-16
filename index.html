@@ -264,31 +264,36 @@
             border-top: 2px solid #111;
         }
 
-       .social-icon {
+       /* --- AJUSTE SIDE-BY-SIDE PARA EL FOOTER --- */
+        .social-icon {
             color: #ffffff;
             transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
-            flex-direction: column; /* Apila el ícono y el texto */
-            align-items: center;
-            gap: 10px;
+            flex-direction: row; /* ¡ESTE ES EL CAMBIO MÁGICO! Uno al lado del otro */
+            align-items: center; /* Alineación vertical perfecta */
+            justify-content: center; /* Centramos el bloque entero en la página */
+            gap: 15px; /* Espacio horizontal entre el ícono y el texto */
             text-decoration: none; /* Quita la raya azul de los enlaces */
         }
         
+        /* Ajuste ligero del tamaño del SVG para que combine con el texto */
+        .social-icon svg {
+            width: 35px; /* Un poco más pequeño para visualmente "pesar" igual que el texto */
+            height: 35px;
+            fill: currentColor;
+        }
+
         .social-icon span {
             font-family: 'Lekton', monospace;
-            font-size: 1.1rem;
+            font-size: 1.2rem; /* Un pelín más grande para que sea legible */
             letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
+        /* Efecto de encendido en rojo sigue funcionando igual */
         .social-icon:hover {
             color: #e50914; 
-            transform: scale(1.1) translateY(-5px); 
-        }
-
-        .social-icon svg {
-            width: 50px;
-            height: 50px;
-            fill: currentColor; /* Esto permite que el CSS cambie el color del SVG */
+            transform: scale(1.05); /* Un crecimiento más sutil para no desarmar la línea */
         }
 
         .creditos-footer {
