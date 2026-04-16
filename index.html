@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guardia Baja - Cortometraje</title>
     <style>
         /* Estética Cine: Negro y Rojo */
         body { 
@@ -12,7 +11,30 @@
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             margin: 0; 
             overflow-x: hidden;
+            scroll-behavior: smooth; /* Esto hace la magia del deslizamiento suave */
         }
+
+        /* MENÚ DE NAVEGACIÓN PARA LUIS */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+        .navbar a:hover { color: #e50914; }
 
         /* Portada Principal */
         .hero { 
@@ -23,6 +45,7 @@
             align-items: center; 
             text-align: center;
             background: radial-gradient(circle, #1a0000 0%, #000000 100%);
+            padding-top: 50px;
         }
 
         h1 { 
@@ -45,7 +68,7 @@
 
         .btn-rojo { 
             margin-top: 40px;
-            background-color: #e50914; 
+            background-color: #e50914 !important; 
             color: white; 
             padding: 18px 40px; 
             font-weight: bold; 
@@ -56,12 +79,55 @@
             transition: 0.3s;
         }
 
-        .btn-rojo:hover { background-color: #ffffff; color: #000000; }
+        .btn-rojo:hover { background-color: #ffffff !important; color: #000000; }
 
-        /* Sección de Patrocinio (Oculta al inicio) */
+        /* NUEVA SECCIÓN: SINOPSIS Y CONCEPTO */
+        #sinopsis {
+            padding: 100px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .titulo-seccion {
+            font-size: 2.5rem; 
+            letter-spacing: 5px; 
+            color: #e50914; 
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .texto-historia {
+            font-size: 1.1rem;
+            color: #bbb;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        /* Etiquetas del "Golpe Final" */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .tag-cine {
+            border: 1px solid #444;
+            padding: 10px 20px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: #fff;
+            text-transform: uppercase;
+            background: #111;
+        }
+
+        /* Sección de Patrocinio */
         #seccion-patrocinio {
             display: none; 
-            padding: 80px 20px;
+            padding: 100px 20px;
             background-color: #050505;
             animation: fadeIn 1s ease forwards;
         }
@@ -71,9 +137,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        h2 { font-size: 2.5rem; text-align: center; letter-spacing: 5px; color: #e50914; margin-bottom: 50px; }
-
-        /* Contenedor de 4 columnas */
         .pricing-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -92,17 +155,13 @@
         }
 
         .plan-card:hover { border-color: #e50914; background: #161616; }
-
         .plan-card h3 { color: #e50914; font-size: 1.2rem; letter-spacing: 1px; margin-bottom: 5px; }
         .plan-card h4 { font-size: 0.9rem; color: #555; text-transform: uppercase; margin-bottom: 20px; }
-        
         .price { font-size: 1.8rem; font-weight: bold; margin: 15px 0; color: #ffffff; }
-
         .plan-card ul { list-style: none; padding: 0; color: #bbb; font-size: 0.85rem; line-height: 1.5; flex-grow: 1; }
         .plan-card li { margin-bottom: 12px; position: relative; padding-left: 20px; }
         .plan-card li::before { content: "🥊"; position: absolute; left: 0; font-size: 0.7rem; top: 3px; }
 
-        /* Mensaje Final */
         .recordatorio {
             max-width: 800px;
             margin: 60px auto 0;
@@ -110,7 +169,6 @@
             border-top: 1px solid #222;
             padding-top: 40px;
         }
-
         .recordatorio h5 { color: #e50914; font-size: 1rem; letter-spacing: 2px; margin-bottom: 20px; }
         .recordatorio p { color: #888; font-size: 0.9rem; line-height: 1.6; font-style: italic; }
 
@@ -119,14 +177,40 @@
 </head>
 <body>
 
-    <section class="hero">
+    <nav class="navbar">
+        <a href="#inicio">Inicio</a>
+        <a href="#sinopsis">La Historia</a>
+        <a href="#equipo">El Equipo</a> 
+        <a href="#seccion-patrocinio" onclick="mostrarPatrocinio()">Patrocinio</a>
+    </nav>
+
+    <section id="inicio" class="hero">
         <h1>GUARDIA BAJA</h1>
         <p class="tagline">¿QUÉ OCURRE CUANDO EL COMBATE MÁS DIFÍCIL NO SE LIBRA EN EL RING, SINO FRENTE AL PESO DE LAS EXPECTATIVAS?</p>
         <button class="btn-rojo" onclick="mostrarPatrocinio()">Ver Planes de Patrocinio</button>
     </section>
 
+    <section id="sinopsis">
+        <h2 class="titulo-seccion">El Combate Interno</h2>
+        
+        <p class="texto-historia">
+            Jesús, un joven boxeador de 20 años, decide dar el salto al profesionalismo bajo la tutela de su padre Julio, un exboxeador marcado por el fracaso y los sueños inconclusos. Julio ve en su hijo la oportunidad de alcanzar la gloria que nunca fue suya y asume su entrenamiento con una disciplina fría, donde el afecto y la palabra están ausentes.
+        </p>
+        <p class="texto-historia">
+            En los últimos rounds, el combate deja de ser solo deportivo y se convierte en un enfrentamiento interno, donde Jesús deberá decidir si pelea por cumplir el sueño de otro o por encontrar, finalmente, el suyo.
+        </p>
+
+        <div class="tags-container">
+            <div class="tag-cine">Fracaso</div>
+            <div class="tag-cine">Vulnerabilidad</div>
+            <div class="tag-cine">Ausencia</div>
+            <div class="tag-cine">Resiliencia</div>
+            <div class="tag-cine">Autodeterminación</div>
+        </div>
+    </section>
+
     <section id="seccion-patrocinio">
-        <h2>PLANES DE PATROCINIO</h2>
+        <h2 class="titulo-seccion">Gimnasio de Aliados</h2>
         
         <div class="pricing-container">
             <div class="plan-card">
@@ -135,8 +219,8 @@
                 <ul>
                     <li>1 post en el feed (foto o video) agradeciendo y mencionando a la marca</li>
                     <li>2 historias durante el rodaje (backstage) con mención directa</li>
-                    <li>1 reel con material del detrás de cámara, incluyendo logo o nombre al final</li>
-                    <li>Presencia en historia destacada permanente en Instagram (“Aliados”)</li>
+                    <li>1 reel con material del detrás de cámara</li>
+                    <li>Presencia en historia destacada permanente ("Aliados")</li>
                     <li>Invitación al estreno del cortometraje</li>
                 </ul>
                 <p class="price">$50 USD</p>
@@ -148,9 +232,8 @@
                 <ul>
                     <li><strong>Todo lo del Plan Primer Round, más:</strong></li>
                     <li>Mención especial en los créditos como Patrocinante Oficial</li>
-                    <li>Inclusión del logo en materiales promocionales (afiches, flyers, piezas digitales)</li>
+                    <li>Inclusión del logo en materiales promocionales</li>
                     <li>1 publicación personalizada adaptada a la estética de la marca</li>
-                    <li>1 contenido grupal del equipo agradeciendo públicamente a los patrocinadores</li>
                     <li>Invitación al estreno</li>
                 </ul>
                 <p class="price">$80 USD</p>
@@ -160,12 +243,10 @@
                 <h3>PLAN 3: ESQUINA DEL CAMPEÓN</h3>
                 <h4>¿Qué incluye?</h4>
                 <ul>
-                    <li>Presencia del producto o servicio dentro del cortometraje (según coherencia narrativa)</li>
-                    <li>Mención visual del logo o marca dentro de escena (de forma natural e integrada)</li>
-                    <li>2 historias mostrando el producto o agradeciendo su apoyo</li>
+                    <li>Presencia del producto/servicio dentro del cortometraje</li>
+                    <li>Mención visual del logo dentro de escena</li>
                     <li>Mención en créditos como Colaborador Creativo</li>
-                    <li>Logo en materiales promocionales del estreno</li>
-                    <li>Video informal de agradecimiento del equipo (para uso en redes de la marca)</li>
+                    <li>Video informal de agradecimiento del equipo</li>
                     <li>Acceso anticipado al tráiler + invitación al estreno</li>
                 </ul>
                 <p class="price">$120 USD</p>
@@ -175,12 +256,10 @@
                 <h3>PLAN 4: KNOCKOUT</h3>
                 <h4>¿Qué incluye?</h4>
                 <ul>
-                    <li><strong>Presencia destacada en el cortometraje:</strong> Logo al final, Créditos principales, Inclusión en afiche oficial</li>
-                    <li><strong>Instagram:</strong> 2 posts, 1 reel, 2 historias con etiquetado</li>
+                    <li><strong>Presencia destacada:</strong> Logo al final, Créditos principales, Afiche oficial</li>
                     <li>Video especial (30-60 seg) adaptado al estilo de la marca</li>
-                    <li>Mini comercial (≤25 seg) tipo storytelling para redes</li>
-                    <li><strong>Material exclusivo:</strong> Fotos backstage, Contenido audiovisual editable, Diseños personalizados</li>
-                    <li><strong>Opcional:</strong> Integración de producto en campaña, Video testimonial del equipo</li>
+                    <li>Mini comercial (≤25 seg) tipo storytelling</li>
+                    <li><strong>Material exclusivo:</strong> Fotos backstage, Diseños personalizados</li>
                 </ul>
                 <p class="price">$300 USD</p>
             </div>
@@ -188,20 +267,24 @@
 
         <div class="recordatorio">
             <h5>LES RECORDAMOS QUE</h5>
-            <p>Todos nuestros planes son flexibles y adaptables según las necesidades y objetivos de cada marca. Creemos en la construcción de alianzas estratégicas que generen valor para ambas partes, por lo que cada propuesta puede ajustarse para lograr una integración auténtica dentro del proyecto. Agradecemos su interés en "Guardia Baja" y sería un honor contar con su apoyo para dar vida a esta historia.</p>
+            <p>Todos nuestros planes son flexibles y adaptables según las necesidades y objetivos de cada marca. Agradecemos su interés en "Guardia Baja" y sería un honor contar con su apoyo para dar vida a esta historia.</p>
             <p style="color: #e50914; font-weight: bold; margin-top: 20px;">¡GRACIAS!</p>
         </div>
     </section>
 
     <footer>
-        <p>Caracas - Venezuela | 2026 | EN PRODUCCIÓN | Para más información: xample@gmail.com</p>
+        <p>BARQUISIMETO - CARACAS | 2026 | EN PRODUCCIÓN</p>
     </footer>
 
     <script>
         function mostrarPatrocinio() {
             var x = document.getElementById("seccion-patrocinio");
             x.style.display = "block";
-            x.scrollIntoView({behavior: "smooth"});
+            // Desplazamiento suave a la sección
+            window.scrollTo({
+                top: x.offsetTop - 60, // Restamos 60px por la barra de navegación
+                behavior: 'smooth'
+            });
         }
     </script>
 
