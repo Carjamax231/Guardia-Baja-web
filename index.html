@@ -199,6 +199,63 @@
                 font-size: 2.2rem;
             }
         }
+
+        /* --- SECCIÓN CASTING ABIERTO --- */
+        #casting { 
+            padding: 100px 20px; 
+            background-color: #0d0d0d; 
+            text-align: center; 
+            border-top: 1px dashed #333; 
+            border-bottom: 1px dashed #333; 
+        }
+        
+        .casting-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 20px; 
+            max-width: 1000px; 
+            margin: 40px auto; 
+        }
+        
+        .casting-card { 
+            background: #111; 
+            border: 1px solid #333; 
+            padding: 25px; 
+            text-align: left; 
+            position: relative; 
+        }
+        
+        /* Efecto de cinta adhesiva */
+        .casting-card::before { 
+            content: ''; 
+            position: absolute; 
+            top: -6px; 
+            left: 50%; 
+            transform: translateX(-50%) rotate(-2deg);
+            width: 60px; 
+            height: 12px; 
+            background: rgba(255,255,255,0.15); 
+        } 
+        
+        .casting-card h3 { color: #e50914; font-size: 2rem; margin-top: 0; letter-spacing: 2px; }
+        .casting-card ul { list-style: none; padding: 0; color: #bbb; font-size: 1.1rem; line-height: 1.6; }
+        .casting-card li strong { color: #fff; }
+        
+        /* Animación de latido para el botón */
+        .btn-pulse { 
+            animation: pulse 2s infinite; 
+            display: inline-block; 
+            margin-top: 40px; 
+        }
+        
+        @keyframes pulse { 
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7); } 
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(229, 9, 20, 0); } 
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0); } 
+        }
+        
+        .contacto-casting { margin-top: 40px; font-size: 1.2rem; color: #888; font-family: 'Lekton', monospace;}
+        .contacto-casting span { color: #fff; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -252,7 +309,49 @@
             <div class="team-member"><img src="kenyer.jpg" alt="Kenyer Quevedo"><h3>KENYER QUEVEDO</h3><p class="role">Sonido</p></div>
         </div>
     </section>
+<section id="casting">
+        <h2 class="titulo-seccion">ÚNETE A LA ESQUINA (CASTING)</h2>
+        
+        <div class="casting-grid">
+            <div class="casting-card">
+                <h3>JESÚS / DAVID</h3>
+                <ul>
+                    <li><strong>Edad:</strong> 21 a 25 años</li>
+                    <li><strong>Contextura:</strong> Atlética</li>
+                </ul>
+            </div>
+            
+            <div class="casting-card">
+                <h3>JULIO</h3>
+                <ul>
+                    <li><strong>Edad:</strong> 40 a 55 años</li>
+                    <li><strong>Contextura:</strong> Media / Atlética</li>
+                    <li><strong>Tez:</strong> Trigueña</li>
+                </ul>
+            </div>
+            
+            <div class="casting-card">
+                <h3>MARÍA</h3>
+                <ul>
+                    <li><strong>Edad:</strong> 20 a 25 años</li>
+                    <li><strong>Contextura:</strong> Media / Atlética</li>
+                </ul>
+            </div>
+            
+            <div class="casting-card">
+                <h3>RÉFERI</h3>
+                <ul>
+                    <li><strong>Edad:</strong> 35 años en adelante</li>
+                    <li><strong>Contextura:</strong> Atlética</li>
+                    <li><strong>Requisito:</strong> Conocimiento en boxeo (Demostrable)</li>
+                </ul>
+            </div>
+        </div>
 
+        <a href="https://docs.google.com/forms/d/1IQJresLvQr94sdr5CinwGDoQYpIKeUrSz7weCBY7Qxg/viewform" target="_blank" class="btn-rojo btn-pulse">POSTULARSE AL CASTING</a>
+        
+        <p class="contacto-casting">¿Dudas? Comunícate con nuestra esquina:<br> <span>0414-3559820</span> | <span>0424-2179360</span></p>
+    </section>
     <section id="seccion-patrocinio">
         <h2 class="titulo-seccion">GIMNASIO DE ALIADOS</h2>
         <div class="pricing-container">
