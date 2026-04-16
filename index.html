@@ -31,7 +31,7 @@
             text-transform: uppercase;
         }
 
-        /* MENÚ DE NAVEGACIÓN */
+        /* NAVEGACIÓN */
         .navbar {
             position: fixed;
             top: 0;
@@ -50,20 +50,45 @@
             font-weight: bold;
             letter-spacing: 2px;
             transition: 0.3s;
-            font-family: 'Lekton', monospace;
         }
         .navbar a:hover { color: #e50914; }
 
-        /* Portada Principal */
+        /* PORTADA CON VIDEO (VIDEO HERO) */
         .hero { 
+            position: relative;
             height: 100vh; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center; 
             text-align: center;
-            background: radial-gradient(circle, #1a0000 0%, #000000 100%);
-            padding-top: 50px;
+            overflow: hidden; /* Para que el video no se salga */
+        }
+
+        /* El video de fondo */
+        #video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+            filter: brightness(0.6) contrast(1.1); /* Lo oscurecemos un poco desde aquí */
+        }
+
+        /* Capa oscura extra para legibilidad */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
         }
 
         h1 { 
@@ -72,18 +97,19 @@
             margin: 0; 
             letter-spacing: 10px; 
             line-height: 1;
+            text-shadow: 0 0 20px rgba(0,0,0,0.8);
         }
 
         .tagline { 
             font-size: 1.3rem; 
-            color: #888; 
+            color: #eee; /* Un poco más claro para resaltar sobre el video */
             margin-top: 20px; 
             max-width: 700px;
             letter-spacing: 1px;
             padding: 0 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
         }
 
-        /* Botón convertido a enlace para deslizar */
         .btn-rojo { 
             margin-top: 40px;
             display: inline-block;
@@ -97,7 +123,6 @@
             transition: 0.3s;
             text-decoration: none;
         }
-
         .btn-rojo:hover { background-color: #ffffff !important; color: #000000; }
 
         /* SINOPSIS */
@@ -107,146 +132,35 @@
             margin: 0 auto;
             text-align: center;
         }
-
-        .titulo-seccion {
-            font-size: 3.5rem; 
-            letter-spacing: 3px; 
-            color: #e50914; 
-            margin-bottom: 40px;
-        }
-
-        .texto-historia {
-            font-size: 1.3rem; 
-            color: #bbb;
-            line-height: 1.8;
-            text-align: justify;
-            margin-bottom: 30px;
-        }
-
-        .tags-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .tag-cine {
-            border: 1px solid #444;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            color: #fff;
-            background: #111;
-        }
-
-        /* SECCIÓN EL EQUIPO (Con Fotos) */
-        #equipo {
-            padding: 100px 20px;
-            background-color: #0a0a0a;
-            text-align: center;
-        }
+        .titulo-seccion { font-size: 3.5rem; letter-spacing: 3px; color: #e50914; margin-bottom: 40px; }
+        .texto-historia { font-size: 1.3rem; color: #bbb; line-height: 1.8; text-align: justify; margin-bottom: 30px; }
         
-        .team-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .team-member {
-            background: #111;
-            border-left: 3px solid #e50914;
-            padding: 20px;
-            width: 250px;
-            text-align: center; /* Centramos el contenido */
-            transition: transform 0.3s;
-        }
-        
-        .team-member:hover {
-            transform: translateY(-5px);
-            background: #1a0000;
-            border-left: 3px solid #ffffff;
-        }
+        .tags-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px; }
+        .tag-cine { border: 1px solid #444; padding: 10px 20px; font-size: 1.2rem; letter-spacing: 2px; color: #fff; background: #111; }
 
-        .team-member img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            margin-bottom: 15px;
-            filter: grayscale(100%) contrast(120%); /* Efecto rudo de cine */
-            transition: 0.3s;
-        }
-
-        .team-member:hover img {
-            filter: grayscale(0%); /* Vuelve al color al pasar el mouse */
-        }
-        
-        .team-member h3 {
-            font-size: 1.8rem;
-            color: #fff;
-            margin: 0 0 5px 0;
-            letter-spacing: 1px;
-        }
-        
-        .team-member .role {
-            font-size: 1rem;
-            color: #888;
-            margin: 0;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
+        /* EQUIPO */
+        #equipo { padding: 100px 20px; background-color: #0a0a0a; text-align: center; }
+        .team-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .team-member { background: #111; border-left: 3px solid #e50914; padding: 20px; width: 250px; text-align: center; transition: transform 0.3s; }
+        .team-member:hover { transform: translateY(-5px); background: #1a0000; border-left: 3px solid #ffffff; }
+        .team-member img { width: 100%; aspect-ratio: 1/1; object-fit: cover; margin-bottom: 15px; filter: grayscale(100%) contrast(120%); transition: 0.3s; }
+        .team-member:hover img { filter: grayscale(0%); }
+        .team-member h3 { font-size: 1.8rem; color: #fff; margin: 0 0 5px 0; letter-spacing: 1px; }
+        .team-member .role { font-size: 1rem; color: #888; margin: 0; text-transform: uppercase; font-weight: bold; }
 
         /* PATROCINIO */
-        #seccion-patrocinio {
-            padding: 100px 20px;
-            background-color: #050505;
-        }
-
-        .pricing-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .plan-card {
-            background: #111;
-            border: 1px solid #222;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            transition: 0.3s;
-        }
-
+        #seccion-patrocinio { padding: 100px 20px; background-color: #050505; }
+        .pricing-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; }
+        .plan-card { background: #111; border: 1px solid #222; padding: 30px; display: flex; flex-direction: column; transition: 0.3s; }
         .plan-card:hover { border-color: #e50914; background: #161616; }
-        
         .plan-card h3 { color: #e50914; font-size: 2rem; margin-bottom: 5px; }
-        
-        .plan-card h4 { 
-            font-size: 1.2rem; 
-            color: #555; 
-            text-transform: uppercase; 
-            margin-bottom: 20px;
-            font-family: 'Lekton', monospace;
-            font-weight: bold;
-        }
-        
+        .plan-card h4 { font-size: 1.2rem; color: #555; text-transform: uppercase; margin-bottom: 20px; font-family: 'Lekton', monospace; font-weight: bold; }
         .price { font-size: 2rem; font-weight: bold; margin: 15px 0; color: #ffffff; }
         .plan-card ul { list-style: none; padding: 0; color: #bbb; font-size: 1.1rem; line-height: 1.5; flex-grow: 1; }
         .plan-card li { margin-bottom: 12px; position: relative; padding-left: 25px; }
         .plan-card li::before { content: "🥊"; position: absolute; left: 0; font-size: 0.8rem; top: 3px; }
 
-        .recordatorio {
-            max-width: 800px;
-            margin: 60px auto 0;
-            text-align: center;
-            border-top: 1px solid #222;
-            padding-top: 40px;
-        }
+        .recordatorio { max-width: 800px; margin: 60px auto 0; text-align: center; border-top: 1px solid #222; padding-top: 40px; }
         .recordatorio h5 { font-family: 'Zumme Rough', 'Impact', sans-serif; color: #e50914; font-size: 2rem; margin-bottom: 20px; }
         .recordatorio p { color: #888; font-size: 1.2rem; line-height: 1.6; font-style: italic; }
 
@@ -263,6 +177,11 @@
     </nav>
 
     <section id="inicio" class="hero">
+        <video autoplay muted loop playsinline id="video-bg">
+            <source src="trailer.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
         <h1>GUARDIA BAJA</h1>
         <p class="tagline">¿QUÉ OCURRE CUANDO EL COMBATE MÁS DIFÍCIL NO SE LIBRA EN EL RING, SINO FRENTE AL PESO DE LAS EXPECTATIVAS?</p>
         <a href="#seccion-patrocinio" class="btn-rojo">Ver Planes de Patrocinio</a>
@@ -270,12 +189,11 @@
 
     <section id="sinopsis">
         <h2 class="titulo-seccion">EL COMBATE INTERNO</h2>
-        
         <p class="texto-historia">
-            Jesús, un joven boxeador de 20 años, decide dar el salto al profesionalismo bajo la tutela de su padre Julio, un exboxeador marcado por el fracaso y los sueños inconclusos. Julio ve en su hijo la oportunidad de alcanzar la gloria que nunca fue suya y asume su entrenamiento con una disciplina fría, donde el afecto y la palabra están ausentes.
+            Jesús, un joven boxeador de 20 años, decide dar el salto al profesionalismo bajo la tutela de su padre Julio, un exboxeador marcado por el fracaso y los sueños inconclusos. Julio ve en su hijo la oportunidad de alcanzar la gloria que nunca fue suya y asume su entrenamiento con una disciplina fría, donde el afecto y la palabra están ausentes. [cite: 545, 546]
         </p>
         <p class="texto-historia">
-            En los últimos rounds, el combate deja de ser solo deportivo y se convierte en un enfrentamiento interno, donde Jesús deberá decidir si pelea por cumplir el sueño de otro o por encontrar, finalmente, el suyo.
+            En los últimos rounds, el combate deja de ser solo deportivo y se convierte en un enfrentamiento interno, donde Jesús deberá decidir si pelea por cumplir el sueño de otro o por encontrar, finalmente, el suyo. [cite: 550]
         </p>
 
         <div class="tags-container">
@@ -290,110 +208,25 @@
     <section id="equipo">
         <h2 class="titulo-seccion">CONOCE AL EQUIPO</h2>
         <div class="team-container">
-            
-            <div class="team-member">
-                <img src="luis.jpg" alt="Luis Perez">
-                <h3>LUIS PEREZ</h3>
-                <p class="role">Director y Guionista</p>
-            </div>
-            
-            <div class="team-member">
-                <img src="enrique.jpg" alt="Enrique Padron">
-                <h3>ENRIQUE PADRON</h3>
-                <p class="role">Dirección</p>
-            </div>
-
-            <div class="team-member">
-                <img src="rommel.jpg" alt="Rommel Carrasco">
-                <h3>ROMMEL CARRASCO</h3>
-                <p class="role">Asistente de Dirección</p>
-            </div>
-
-            <div class="team-member">
-                <img src="gabriela.jpg" alt="Gabriela De Sousa">
-                <h3>GABRIELA DE SOUSA</h3>
-                <p class="role">Productora General</p>
-            </div>
-
-            <div class="team-member">
-                <img src="miguel.jpg" alt="Miguel Perez">
-                <h3>MIGUEL PEREZ</h3>
-                <p class="role">Director de Fotografía y Guionista</p>
-            </div>
-
-            <div class="team-member">
-                <img src="julian.jpg" alt="Julian Nuñez">
-                <h3>JULIAN NUÑEZ</h3>
-                <p class="role">Director de Arte</p>
-            </div>
-
-            <div class="team-member">
-                <img src="ramon.jpg" alt="Ramon Roman">
-                <h3>RAMON ROMAN</h3>
-                <p class="role">Sonido</p>
-            </div>
-
-            <div class="team-member">
-                <img src="kenyer.jpg" alt="Kenyer Quevedo">
-                <h3>KENYER QUEVEDO</h3>
-                <p class="role">Sonido</p>
-            </div>
-
+            <div class="team-member"><img src="luis.jpg" alt="Luis Perez"><h3>LUIS PEREZ</h3><p class="role">Director y Guionista</p></div>
+            <div class="team-member"><img src="enrique.jpg" alt="Enrique Padron"><h3>ENRIQUE PADRON</h3><p class="role">Dirección</p></div>
+            <div class="team-member"><img src="rommel.jpg" alt="Rommel Carrasco"><h3>ROMMEL CARRASCO</h3><p class="role">Asistente de Dirección</p></div>
+            <div class="team-member"><img src="gabriela.jpg" alt="Gabriela De Sousa"><h3>GABRIELA DE SOUSA</h3><p class="role">Productora General</p></div>
+            <div class="team-member"><img src="miguel.jpg" alt="Miguel Perez"><h3>MIGUEL PEREZ</h3><p class="role">Director de Fotografía y Guionista</p></div>
+            <div class="team-member"><img src="julian.jpg" alt="Julian Nuñez"><h3>JULIAN NUÑEZ</h3><p class="role">Director de Arte</p></div>
+            <div class="team-member"><img src="ramon.jpg" alt="Ramon Roman"><h3>RAMON ROMAN</h3><p class="role">Sonido</p></div>
+            <div class="team-member"><img src="kenyer.jpg" alt="Kenyer Quevedo"><h3>KENYER QUEVEDO</h3><p class="role">Sonido</p></div>
         </div>
     </section>
 
     <section id="seccion-patrocinio">
         <h2 class="titulo-seccion">GIMNASIO DE ALIADOS</h2>
-        
         <div class="pricing-container">
-            <div class="plan-card">
-                <h3>PRIMER ROUND</h3>
-                <h4>Plan de $50 USD</h4>
-                <ul>
-                    <li>1 post en el feed (foto o video) agradeciendo y mencionando a la marca</li>
-                    <li>2 historias durante el rodaje (backstage) con mención directa</li>
-                    <li>1 reel con material del detrás de cámara</li>
-                    <li>Presencia en historia destacada permanente ("Aliados")</li>
-                    <li>Invitación al estreno del cortometraje</li>
-                </ul>
-            </div>
-
-            <div class="plan-card">
-                <h3>GOLPE CERTERO</h3>
-                <h4>Plan de $80 USD</h4>
-                <ul>
-                    <li><strong>Todo lo del Plan Primer Round, más:</strong></li>
-                    <li>Mención especial en los créditos como Patrocinante Oficial</li>
-                    <li>Inclusión del logo en materiales promocionales</li>
-                    <li>1 publicación personalizada adaptada a la estética de la marca</li>
-                    <li>Invitación al estreno</li>
-                </ul>
-            </div>
-
-            <div class="plan-card">
-                <h3>ESQUINA DEL CAMPEON</h3>
-                <h4>Plan de $120 USD</h4>
-                <ul>
-                    <li>Presencia del producto/servicio dentro del cortometraje</li>
-                    <li>Mención visual del logo dentro de escena</li>
-                    <li>Mención en créditos como Colaborador Creativo</li>
-                    <li>Video informal de agradecimiento del equipo</li>
-                    <li>Acceso anticipado al tráiler + invitación al estreno</li>
-                </ul>
-            </div>
-
-            <div class="plan-card" style="border-color: #e50914;">
-                <h3>KNOCKOUT</h3>
-                <h4>Plan de $300 USD</h4>
-                <ul>
-                    <li><strong>Presencia destacada:</strong> Logo al final, Créditos principales, Afiche oficial</li>
-                    <li>Video especial (30-60 seg) adaptado al estilo de la marca</li>
-                    <li>Mini comercial (≤25 seg) tipo storytelling</li>
-                    <li><strong>Material exclusivo:</strong> Fotos backstage, Diseños personalizados</li>
-                </ul>
-            </div>
+            <div class="plan-card"><h3>PRIMER ROUND</h3><h4>Plan de $50 USD</h4><ul><li>1 post en el feed (foto o video) agradeciendo y mencionando a la marca</li><li>2 historias durante el rodaje (backstage) con mención directa</li><li>1 reel con material del detrás de cámara</li><li>Presencia en historia destacada permanente ("Aliados")</li><li>Invitación al estreno del cortometraje</li></ul></div>
+            <div class="plan-card"><h3>GOLPE CERTERO</h3><h4>Plan de $80 USD</h4><ul><li><strong>Todo lo del Plan Primer Round, más:</strong></li><li>Mención especial en los créditos como Patrocinante Oficial</li><li>Inclusión del logo en materiales promocionales</li><li>1 publicación personalizada adaptada a la estética de la marca</li><li>Invitación al estreno</li></ul></div>
+            <div class="plan-card"><h3>ESQUINA DEL CAMPEON</h3><h4>Plan de $120 USD</h4><ul><li>Presencia del producto/servicio dentro del cortometraje</li><li>Mención visual del logo dentro de escena</li><li>Mención en créditos como Colaborador Creativo</li><li>Video informal de agradecimiento del equipo</li><li>Acceso anticipado al tráiler + invitación al estreno</li></ul></div>
+            <div class="plan-card" style="border-color: #e50914;"><h3>KNOCKOUT</h3><h4>Plan de $300 USD</h4><ul><li><strong>Presencia destacada:</strong> Logo al final, Créditos principales, Afiche oficial</li><li>Video especial (30-60 seg) adaptado al estilo de la marca</li><li>Mini comercial (≤25 seg) tipo storytelling</li><li><strong>Material exclusivo:</strong> Fotos backstage, Diseños personalizados</li></ul></div>
         </div>
-
         <div class="recordatorio">
             <h5>LES RECORDAMOS QUE</h5>
             <p>Todos nuestros planes son flexibles y adaptables según las necesidades y objetivos de cada marca. Agradecemos su interés en "Guardia Baja" y sería un honor contar con su apoyo para dar vida a esta historia.</p>
