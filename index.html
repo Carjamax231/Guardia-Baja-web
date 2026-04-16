@@ -11,14 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Lekton:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* FUENTE ZUMME (Alojada en tu GitHub, funciona en WordPress) */
         @font-face {
             font-family: 'Zumme Rough';
             src: url('https://carjamax231.github.io/Guardia-Baja-web/zumme-rough-bold.otf') format('opentype'); 
             font-weight: bold;
         }
 
-        /* Estética Cine: Negro y Rojo */
         body { 
             background-color: #000000; 
             color: #ffffff; 
@@ -28,7 +26,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Aplicando ZUMME a todos los títulos y botones */
         h1, h2, h3, .btn-rojo, .tag-cine {
             font-family: 'Zumme Rough', 'Impact', sans-serif;
             text-transform: uppercase;
@@ -86,8 +83,10 @@
             padding: 0 20px;
         }
 
+        /* Botón convertido a enlace para deslizar */
         .btn-rojo { 
             margin-top: 40px;
+            display: inline-block;
             background-color: #e50914 !important; 
             color: white; 
             padding: 18px 40px; 
@@ -96,11 +95,12 @@
             cursor: pointer;
             letter-spacing: 2px;
             transition: 0.3s;
+            text-decoration: none;
         }
 
         .btn-rojo:hover { background-color: #ffffff !important; color: #000000; }
 
-        /* SINOPSIS Y CONCEPTO */
+        /* SINOPSIS */
         #sinopsis {
             padding: 100px 20px;
             max-width: 900px;
@@ -123,7 +123,6 @@
             margin-bottom: 30px;
         }
 
-        /* Etiquetas del "Golpe Final" */
         .tags-container {
             display: flex;
             flex-wrap: wrap;
@@ -141,7 +140,7 @@
             background: #111;
         }
 
-        /* SECCIÓN EL EQUIPO (La Esquina) */
+        /* SECCIÓN EL EQUIPO (Con Fotos) */
         #equipo {
             padding: 100px 20px;
             background-color: #0a0a0a;
@@ -153,16 +152,16 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
         .team-member {
             background: #111;
             border-left: 3px solid #e50914;
-            padding: 20px 30px;
+            padding: 20px;
             width: 250px;
-            text-align: left;
+            text-align: center; /* Centramos el contenido */
             transition: transform 0.3s;
         }
         
@@ -170,6 +169,19 @@
             transform: translateY(-5px);
             background: #1a0000;
             border-left: 3px solid #ffffff;
+        }
+
+        .team-member img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            margin-bottom: 15px;
+            filter: grayscale(100%) contrast(120%); /* Efecto rudo de cine */
+            transition: 0.3s;
+        }
+
+        .team-member:hover img {
+            filter: grayscale(0%); /* Vuelve al color al pasar el mouse */
         }
         
         .team-member h3 {
@@ -180,24 +192,17 @@
         }
         
         .team-member .role {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #888;
             margin: 0;
             text-transform: uppercase;
             font-weight: bold;
         }
 
-        /* Sección de Patrocinio */
+        /* PATROCINIO */
         #seccion-patrocinio {
-            display: none; 
             padding: 100px 20px;
             background-color: #050505;
-            animation: fadeIn 1s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .pricing-container {
@@ -254,17 +259,17 @@
         <a href="#inicio">Inicio</a>
         <a href="#sinopsis">La Historia</a>
         <a href="#equipo">El Equipo</a> 
-        <a href="#seccion-patrocinio" onclick="mostrarPatrocinio()">Patrocinio</a>
+        <a href="#seccion-patrocinio">Patrocinio</a>
     </nav>
 
     <section id="inicio" class="hero">
         <h1>GUARDIA BAJA</h1>
         <p class="tagline">¿QUÉ OCURRE CUANDO EL COMBATE MÁS DIFÍCIL NO SE LIBRA EN EL RING, SINO FRENTE AL PESO DE LAS EXPECTATIVAS?</p>
-        <button class="btn-rojo" onclick="mostrarPatrocinio()">Ver Planes de Patrocinio</button>
+        <a href="#seccion-patrocinio" class="btn-rojo">Ver Planes de Patrocinio</a>
     </section>
 
     <section id="sinopsis">
-        <h2 class="titulo-seccion">El Combate Interno</h2>
+        <h2 class="titulo-seccion">EL COMBATE INTERNO</h2>
         
         <p class="texto-historia">
             Jesús, un joven boxeador de 20 años, decide dar el salto al profesionalismo bajo la tutela de su padre Julio, un exboxeador marcado por el fracaso y los sueños inconclusos. Julio ve en su hijo la oportunidad de alcanzar la gloria que nunca fue suya y asume su entrenamiento con una disciplina fría, donde el afecto y la palabra están ausentes.
@@ -274,41 +279,71 @@
         </p>
 
         <div class="tags-container">
-            <div class="tag-cine">Fracaso</div>
-            <div class="tag-cine">Vulnerabilidad</div>
-            <div class="tag-cine">Ausencia</div>
-            <div class="tag-cine">Resiliencia</div>
-            <div class="tag-cine">Autodeterminación</div>
+            <div class="tag-cine">FRACASO</div>
+            <div class="tag-cine">VULNERABILIDAD</div>
+            <div class="tag-cine">AUSENCIA</div>
+            <div class="tag-cine">RESILIENCIA</div>
+            <div class="tag-cine">AUTODETERMINACION</div>
+        </div>
+    </section>
+
+    <section id="equipo">
+        <h2 class="titulo-seccion">CONOCE AL EQUIPO</h2>
+        <div class="team-container">
+            
+            <div class="team-member">
+                <img src="luis.jpg" alt="Luis Perez">
+                <h3>LUIS PEREZ</h3>
+                <p class="role">Director y Guionista</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="enrique.jpg" alt="Enrique Padron">
+                <h3>ENRIQUE PADRON</h3>
+                <p class="role">Dirección</p>
+            </div>
+
+            <div class="team-member">
+                <img src="rommel.jpg" alt="Rommel Carrasco">
+                <h3>ROMMEL CARRASCO</h3>
+                <p class="role">Asistente de Dirección</p>
+            </div>
+
+            <div class="team-member">
+                <img src="gabriela.jpg" alt="Gabriela De Sousa">
+                <h3>GABRIELA DE SOUSA</h3>
+                <p class="role">Productora General</p>
+            </div>
+
+            <div class="team-member">
+                <img src="miguel.jpg" alt="Miguel Perez">
+                <h3>MIGUEL PEREZ</h3>
+                <p class="role">Director de Fotografía y Guionista</p>
+            </div>
+
+            <div class="team-member">
+                <img src="julian.jpg" alt="Julian Nuñez">
+                <h3>JULIAN NUÑEZ</h3>
+                <p class="role">Director de Arte</p>
+            </div>
+
+            <div class="team-member">
+                <img src="ramon.jpg" alt="Ramon Roman">
+                <h3>RAMON ROMAN</h3>
+                <p class="role">Sonido</p>
+            </div>
+
+            <div class="team-member">
+                <img src="kenyer.jpg" alt="Kenyer Quevedo">
+                <h3>KENYER QUEVEDO</h3>
+                <p class="role">Sonido</p>
+            </div>
+
         </div>
     </section>
 
     <section id="seccion-patrocinio">
-     <section id="equipo">
-        <h2 class="titulo-seccion">La Esquina</h2>
-        <div class="team-container">
-            <div class="team-member">
-                <h3>Luis Pérez</h3>
-                <p class="role">Director y Guionista</p>
-            </div>
-            <div class="team-member">
-                <h3>Enrique Padrón</h3>
-                <p class="role">Dirección</p>
-            </div>
-            <div class="team-member">
-                <h3>Miguel Pérez</h3>
-                <p class="role">Director de Fotografía</p>
-            </div>
-            <div class="team-member">
-                <h3>Gabriela De Sousa</h3>
-                <p class="role">Productora General</p>
-            </div>
-            <div class="team-member">
-                <h3>Rommel Carrasco</h3>
-                <p class="role">Asistente de Dirección</p>
-            </div>
-        </div>
-    </section>   
-        <h2 class="titulo-seccion">Gimnasio de Aliados</h2>
+        <h2 class="titulo-seccion">GIMNASIO DE ALIADOS</h2>
         
         <div class="pricing-container">
             <div class="plan-card">
@@ -336,7 +371,7 @@
             </div>
 
             <div class="plan-card">
-                <h3>ESQUINA DEL CAMPEÓN</h3>
+                <h3>ESQUINA DEL CAMPEON</h3>
                 <h4>Plan de $120 USD</h4>
                 <ul>
                     <li>Presencia del producto/servicio dentro del cortometraje</li>
@@ -367,19 +402,8 @@
     </section>
 
     <footer>
-        <p>CARACAS - VENEZUELA | 2026 | EN PRODUCCIÓN</p>
+        <p>CARACAS - VENEZUELA | 2026 | EN PRODUCCION</p>
     </footer>
-
-    <script>
-        function mostrarPatrocinio() {
-            var x = document.getElementById("seccion-patrocinio");
-            x.style.display = "block";
-            window.scrollTo({
-                top: x.offsetTop - 60,
-                behavior: 'smooth'
-            });
-        }
-    </script>
 
 </body>
 </html>
