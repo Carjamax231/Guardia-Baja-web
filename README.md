@@ -11,7 +11,7 @@ El proyecto utiliza una **arquitectura híbrida**: GitHub funciona como el "Arch
 **"Guardia Baja"** explora la vulnerabilidad y la resiliencia en el mundo del boxeo, centrándose en el conflicto interno de Jesús frente a las expectativas de su padre.
 
 - **Director:** Luis Pérez
-- **Ubicación:** Barquisimeto - Caracas, Venezuela.
+- **Ubicación:** CARACAS - VENEZUELA, Venezuela.
 - **Estado:** En producción.
 
 ---
@@ -59,4 +59,5 @@ Si deseas sumarte como aliado o participar en el casting:
 * **Formulario de Casting:** [Postularse aquí](https://docs.google.com/forms/d/1IQJresLvQr94sdr5CinwGDoQYpIKeUrSz7weCBY7Qxg/viewform)
 
 ---
-*Desarrollado con pasión por el cine y el código. 2026.*
+*Desarrollado con pasión por el cine y el código. 2026.* 
+*por Carlos Javier Perez Barquisimeto - Lara.*
