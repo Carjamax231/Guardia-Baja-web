@@ -125,7 +125,7 @@
     }
     .guardia-baja-app .btn-rojo:hover { background-color: #ffffff !important; color: #000000 !important; }
 
-    /* --- HISTORIA --- */
+    /* --- SINOPSIS --- */
     .guardia-baja-app #sinopsis, .guardia-baja-app #casting { padding: 100px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
     .guardia-baja-app .titulo-seccion { font-size: 3.5rem; letter-spacing: 3px; color: #e50914; margin-bottom: 40px; }
     .guardia-baja-app .texto-historia { font-size: 1.3rem; color: #bbb; line-height: 1.8; text-align: justify; margin-bottom: 30px; }
@@ -146,8 +146,23 @@
 
     /* --- CASTING --- */
     .guardia-baja-app #casting { background-color: #0d0d0d; border-top: 1px dashed #333; border-bottom: 1px dashed #333; max-width: 100%; }
-    .guardia-baja-app .casting-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: 40px auto; }
-    .guardia-baja-app .casting-card { background: #111; border: 1px solid #333; padding: 25px; text-align: left; position: relative; }
+   .guardia-baja-app .casting-grid { 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 20px; 
+        max-width: 1050px; 
+        margin: 40px auto; 
+    }
+    .guardia-baja-app .casting-card { 
+        background: #111; 
+        border: 1px solid #333; 
+        padding: 25px; 
+        text-align: left; 
+        position: relative; 
+        width: 300px; 
+        flex: 0 1 300px; 
+    }
     .guardia-baja-app .casting-card::before { content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%) rotate(-2deg); width: 60px; height: 12px; background: rgba(255,255,255,0.15); } 
     .guardia-baja-app .casting-card h3 { color: #e50914; font-size: 2rem; margin-top: 0; letter-spacing: 2px; }
     .guardia-baja-app .casting-card ul { list-style: none; padding: 0; color: #bbb; font-size: 1.1rem; line-height: 1.6; }
@@ -181,14 +196,14 @@
     .guardia-baja-app .social-icon:hover { color: #e50914; transform: scale(1.05); }
     .guardia-baja-app .creditos-footer { color: #444; font-size: 0.9rem; letter-spacing: 3px; font-family: 'Lekton', monospace; text-transform: uppercase; }
 
-    /* --- MÓVIL --- */
+    /* TELEFONO */
     @media (max-width: 768px) {
         .guardia-baja-app .navbar a { margin: 0 5px; font-size: 0.75rem; letter-spacing: 1px; }
         .guardia-baja-app h1 { font-size: 3.2rem !important; letter-spacing: 5px; }
         .guardia-baja-app .hero-overlay { background: rgba(0, 0, 0, 0.5); }
         .guardia-baja-app .team-member { width: 140px; }
         .guardia-baja-app .titulo-seccion { font-size: 2.2rem; }
-        .guardia-baja-app .social-container { gap: 25px; flex-direction: column; } /* En móviles bajan para no amontonarse */
+        .guardia-baja-app .social-container { gap: 25px; flex-direction: column; }
     }
 </style>
 
@@ -251,11 +266,54 @@
 
     <section id="casting">
         <h2 class="titulo-seccion">ÚNETE A LA ESQUINA (CASTING)</h2>
-        <div class="casting-grid">
-            <div class="casting-card"><h3>JESÚS / DAVID</h3><ul><li><strong>Edad:</strong> 21 a 25 años</li><li><strong>Contextura:</strong> Atlética</li></ul></div>
-            <div class="casting-card"><h3>JULIO</h3><ul><li><strong>Edad:</strong> 40 a 55 años</li><li><strong>Contextura:</strong> Media / Atlética</li><li><strong>Tez:</strong> Trigueña</li></ul></div>
-            <div class="casting-card"><h3>MARÍA</h3><ul><li><strong>Edad:</strong> 20 a 25 años</li><li><strong>Contextura:</strong> Media / Atlética</li></ul></div>
-            <div class="casting-card"><h3>RÉFERI</h3><ul><li><strong>Edad:</strong> 35 años en adelante</li><li><strong>Contextura:</strong> Atlética</li><li><strong>Requisito:</strong> Conocimiento en boxeo (Demostrable)</li></ul></div>
+      <div class="casting-grid">
+            <div class="casting-card">
+                <h3>JESÚS</h3>
+                <ul>
+                    <li><strong>Perfil:</strong> Protagonista</li>
+                    <li><strong>Edad:</strong> 21 a 25 años</li>
+                    <li><strong>Contextura:</strong> Atlética, complexión media</li>
+                    <li><strong>Psicología:</strong> Joven frustrado con una carga emocional profunda.</li>
+                </ul>
+            </div>
+            
+            <div class="casting-card">
+                <h3>DAVID</h3>
+                <ul>
+                    <li><strong>Perfil:</strong> Rival de Jesús</li>
+                    <li><strong>Edad:</strong> 21 a 25 años</li>
+                    <li><strong>Contextura:</strong> Atlética</li>
+                    <li><strong>Requisito:</strong> Conocimientos de boxeo o deportes de contacto.</li>
+                </ul>
+            </div>
+            
+            <div class="casting-card">
+                <h3>MARÍA</h3>
+                <ul>
+                    <li><strong>Perfil:</strong> Interés amoroso</li>
+                    <li><strong>Edad:</strong> 20 a 25 años</li>
+                    <li><strong>Psicología:</strong> Sensible, expresiva; la luz en la vida del protagonista.</li>
+                </ul>
+            </div>
+            
+            <div class="casting-card">
+                <h3>JULIO</h3>
+                <ul>
+                    <li><strong>Perfil:</strong> Padre de Jesús</li>
+                    <li><strong>Edad:</strong> 40 a 55 años</li>
+                    <li><strong>Apariencia:</strong> Tez trigueña, rasgos criollos, presencia imponente.</li>
+                    <li><strong>Psicología:</strong> Padre violento y frustrado.</li>
+                </ul>
+            </div>
+            
+            <div class="casting-card">
+                <h3>RÉFERI</h3>
+                <ul>
+                    <li><strong>Perfil:</strong> Autoridad en el ring</li>
+                    <li><strong>Edad:</strong> 30 a 55 años</li>
+                    <li><strong>Requisito:</strong> Conocimientos reales en boxeo u otros deportes. Capaz de marcar el ritmo con seguridad.</li>
+                </ul>
+            </div>
         </div>
         <a href="https://docs.google.com/forms/d/1IQJresLvQr94sdr5CinwGDoQYpIKeUrSz7weCBY7Qxg/viewform" target="_blank" class="btn-rojo btn-pulse">POSTULARSE AL CASTING</a>
         <p class="contacto-casting">¿Dudas? Comunícate con nuestra esquina:<br> <span>0414-3559820</span> | <span>0424-2179360</span></p>
