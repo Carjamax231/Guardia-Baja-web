@@ -164,6 +164,55 @@
         flex: 0 0 300px; 
         box-sizing: border-box;
     }
+    /* Estilos para Coordenadas y Dudas */
+    .guardia-baja-app .info-coordenadas {
+        margin: 40px auto;
+        max-width: 600px;
+        background: #111;
+        border: 1px solid #333;
+        padding: 25px;
+        text-align: center;
+        border-left: 3px solid #e50914; /* Un toque rojo para mantener el estilo */
+    }
+    .guardia-baja-app .info-coordenadas p {
+        color: #bbb;
+        font-size: 1.1rem;
+        margin: 10px 0;
+        line-height: 1.5;
+    }
+    .guardia-baja-app .info-coordenadas strong {
+        color: #fff;
+        letter-spacing: 1px;
+    }
+
+    .guardia-baja-app .contacto-dudas { margin-top: 30px; }
+    .guardia-baja-app .contacto-dudas p { color: #888; font-size: 1.1rem; margin-bottom: 15px; }
+    
+    /* Botón Outline para WhatsApp */
+    .guardia-baja-app .btn-whatsapp {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: 1px solid #555;
+        color: #fff;
+        padding: 12px 25px;
+        font-family: 'Lekton', monospace;
+        font-size: 1.1rem;
+        text-decoration: none;
+        letter-spacing: 1px;
+        transition: 0.3s;
+        text-transform: uppercase;
+        background: transparent;
+    }
+    .guardia-baja-app .btn-whatsapp svg { width: 24px; height: 24px; fill: currentColor; }
+    
+    /* Al pasar el mouse, se ilumina con el verde clásico de WhatsApp */
+    .guardia-baja-app .btn-whatsapp:hover {
+        border-color: #25D366;
+        color: #25D366;
+        transform: scale(1.05);
+    }
     .guardia-baja-app .casting-card::before { content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%) rotate(-2deg); width: 60px; height: 12px; background: rgba(255,255,255,0.15); } 
     .guardia-baja-app .casting-card h3 { color: #e50914; font-size: 2rem; margin-top: 0; letter-spacing: 2px; }
     .guardia-baja-app .casting-card ul { list-style: none; padding: 0; color: #bbb; font-size: 1.1rem; line-height: 1.6; }
@@ -316,8 +365,21 @@
                 </ul>
             </div>
         </div>
-        <a href="https://docs.google.com/forms/d/1IQJresLvQr94sdr5CinwGDoQYpIKeUrSz7weCBY7Qxg/viewform" target="_blank" class="btn-rojo btn-pulse">POSTULARSE AL CASTING</a>
-        <p class="contacto-casting">¿Dudas? Comunícate con nuestra esquina:<br> <span>0414-3559820</span> | <span>0424-2179360</span></p>
+<a href="https://docs.google.com/forms/d/1IQJresLvQr94sdr5CinwGDoQYpIKeUrSz7weCBY7Qxg/viewform" target="_blank" class="btn-rojo btn-pulse">POSTULARSE AL CASTING</a>
+        
+        <div class="info-coordenadas">
+            <p><strong>📍 LUGAR:</strong> Los Palos Grandes, 2da Transversal, Edif. Contemporary Suites.</p>
+            <p><strong>📅 FECHAS:</strong> Viernes 17, Sábado 18, Viernes 24 y Sábado 25.</p>
+            <p><strong>⏰ HORA:</strong> A partir de la 1:00 PM.</p>
+        </div>
+
+        <div class="contacto-dudas">
+            <p>¿Dudas sobre los perfiles o el proceso?</p>
+            <a href="https://wa.me/584143559820" target="_blank" class="btn-whatsapp">
+                <svg viewBox="0 0 24 24"><path d="M12.031 0c-6.627 0-11.996 5.369-11.996 11.996 0 2.115.549 4.148 1.593 5.952l-1.696 6.195 6.34-1.664c1.748.966 3.708 1.474 5.759 1.474 6.627 0 11.996-5.369 11.996-11.996s-5.369-11.996-11.996-11.996zm6.55 17.348c-.279.789-1.631 1.491-2.25 1.547-.56.05-1.229.135-3.528-.82-2.766-1.15-4.542-4.01-4.682-4.195-.141-.186-1.121-1.493-1.121-2.846 0-1.353.708-2.019.961-2.298.252-.279.55-.349.734-.349.184 0 .368.005.526.012.167.009.39-.066.609.462.279.673.951 2.316 1.036 2.486.084.17.141.368.028.596-.112.228-.168.368-.336.565-.168.196-.349.426-.499.58-.167.168-.344.348-.146.689.196.341.874 1.447 1.88 2.344 1.298 1.155 2.38 1.503 2.735 1.672.355.168.565.14.776-.084.212-.224.912-1.06 1.155-1.424.244-.364.488-.303.815-.184.327.118 2.062.973 2.417 1.15.355.177.592.266.678.414.084.148.084.856-.195 1.645z"/></svg>
+                CHATEA CON PRODUCCIÓN
+            </a>
+        </div>
     </section>
 
     <section id="seccion-patrocinio">
