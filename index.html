@@ -221,7 +221,8 @@
     @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(229, 9, 20, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 9, 20, 0); } }
     .guardia-baja-app .contacto-casting { margin-top: 40px; font-size: 1.2rem; color: #888; font-family: 'Lekton', monospace;}
     .guardia-baja-app .contacto-casting span { color: #fff; font-weight: bold; }
-/* --- TICKER PATROCINADORES REFINADO --- */
+
+/* --- TICKER PATROCINADORES REFINADO (ESTRUCTURA + ESTÉTICA) --- */
     .guardia-baja-app #patrocinadores-ticker {
         background-color: #080808;
         padding: 80px 0 0 0; 
@@ -235,25 +236,48 @@
         padding: 25px 0;
         border: none; /* Adiós a las líneas punteadas */
     }
+    /* EL MOTOR Y LA PISTA (Lo que habíamos borrado) */
+    .guardia-baja-app .ticker-track {
+        display: flex;
+        width: max-content;
+        animation: scrollTicker 20s linear infinite;
+    }
+    /* Freno de emergencia al pasar el mouse */
+    .guardia-baja-app .ticker-track:hover {
+        animation-play-state: paused;
+    }
+    /* CONTENEDOR DE CADA LOGO (Mantiene la separación) */
+    .guardia-baja-app .ticker-item {
+        width: 250px; 
+        padding: 0 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* LA ESTÉTICA (El Fantasma Blanco) */
     .guardia-baja-app .ticker-item img {
         max-width: 100%;
         height: 70px; 
         object-fit: contain; 
-        /* EL FANTASMA BLANCO: Apaga la luz (0) e invierte a blanco (1) */
         filter: brightness(0) invert(1) opacity(0.5); 
         transition: all 0.4s ease;
         cursor: pointer;
     }
     .guardia-baja-app .ticker-item img:hover {
-        filter: none; /* Recupera el color original de la marca */
+        filter: none; 
         transform: scale(1.1);
     }
     /* REGLA ESPECIAL PARA EQUILIBRAR A ENDORET */
     .guardia-baja-app .logo-endoret {
-        transform: scale(1.35); /* Agrandamos el logo cuadrado */
+        transform: scale(1.35); 
     }
     .guardia-baja-app .logo-endoret:hover {
         transform: scale(1.5); 
+    }
+    /* LA ANIMACIÓN (El Bucle Infinito) */
+    @keyframes scrollTicker {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
     }
     /* --- FOOTER SIN LÍNEA DIVISORIA --- */
     .guardia-baja-app #contacto { 
@@ -262,6 +286,7 @@
         text-align: center; 
         border: none; /* Adiós a la línea sólida sobre el campanazo final */
     }
+    
     /* --- PATROCINIO --- */
     .guardia-baja-app #seccion-patrocinio { padding: 40px 20px 80px; background-color: #050505; }
     .guardia-baja-app .pricing-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; }
