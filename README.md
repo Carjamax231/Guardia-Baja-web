@@ -31,7 +31,7 @@ El proyecto utiliza una **arquitectura híbrida**: GitHub funciona como el "Arch
 
 ## Sobre el Proyecto
 
-- **Director:** Luis Pérez Estudiante de la UCAB 
+- **Director:** Luis Eduardo Pérez  Estudiante de la UCAB 
 - **Ubicación de Rodaje:** CARACAS - VENEZUELA.
 - **Estado:** En producción.
 
