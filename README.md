@@ -8,7 +8,7 @@ El proyecto utiliza una **arquitectura híbrida**: GitHub funciona como el "Arch
 
 ---
 
-## 🗓️ Bitácora de Desarrollo y Cambios Lógicos
+## Bitácora de Desarrollo y Cambios Lógicos
 
 ### 18 - 19 de Abril, 2026: Fase 3 - Cirugía Estética, UX/UI y Casting
 * **Módulo de Casting (Lógica CSS):** Se implementó una cuadrícula (Grid) simétrica de 3-2 para las 5 fichas de los personajes. Para vencer la deformación nativa de Flexbox, se aplicó `box-sizing: border-box` y `flex: 0 0 300px`, obligando al navegador a respetar las matemáticas exactas de los contenedores sin "engordar" las tarjetas.
@@ -29,7 +29,7 @@ El proyecto utiliza una **arquitectura híbrida**: GitHub funciona como el "Arch
 
 ---
 
-## 🎬 Sobre el Proyecto
+## Sobre el Proyecto
 
 - **Director:** Luis Pérez Estudiante de la UCAB 
 - **Ubicación de Rodaje:** CARACAS - VENEZUELA.
@@ -37,7 +37,7 @@ El proyecto utiliza una **arquitectura híbrida**: GitHub funciona como el "Arch
 
 ---
 
-## 🚀 Protocolo de Despliegue en WordPress
+## Protocolo de Despliegue en WordPress
 
 Para actualizar el sitio en el dominio oficial:
 1. Realizar y probar los cambios en el archivo `index.html` de este repositorio local.
@@ -48,7 +48,7 @@ Para actualizar el sitio en el dominio oficial:
 
 ---
 
-## 📩 Contacto y Redes
+## Contacto
 
 * **Instagram:** [@guardiabajacorto](https://www.instagram.com/guardiabajacorto/)
 * **Email:** guardiabajacorto@gmail.com
