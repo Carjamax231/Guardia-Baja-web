@@ -45,7 +45,38 @@ Para actualizar el sitio en el dominio oficial:
 3. Copiar la totalidad del código fuente de `index.html`.
 4. En **WordPress (Elementor)**, ubicar el widget de **HTML**, borrar el código anterior y pegar la nueva versión.
 5. Guardar y verificar que el ajuste de página sea **"Elementor Canvas"**.
+---
+# 📈 Log de Cambios - Lunes 20 de Abril
+**Proyecto:** Sitio Web Oficial - "Guardia Baja"
 
+### 1. UI/UX: Estrategia de Conversión (Hero Section)
+* **Evolución del Botón:** Se transformó el acceso único de patrocinio en un sistema de **"Doble Impacto"**.
+* **Implementación:** Creación del contenedor `.hero-botones` mediante **Flexbox** para asegurar simetría visual.
+* **Resultado:** El sitio ahora presenta dos llamados a la acción con la misma jerarquía: **"Planes de Patrocinio"** y **"Postularse al Casting"**, equilibrando la captación de aliados comerciales y talento artístico.
+
+### 2. Optimización Móvil (Responsive Design)
+* **La "Llave Maestra":** Se incorporó la etiqueta `<meta name="viewport" content="width=device-width, initial-scale=1.0">` en la cabecera del código. Esto corrigió el error de escala que forzaba la visualización de escritorio en dispositivos móviles.
+* **Media Queries (@768px):**
+    * **Apilamiento Vertical:** Los botones del Hero ahora se posicionan uno sobre otro en móviles, mejorando la ergonomía táctil.
+    * **Ajuste de Títulos:** Reducción del tamaño del `h1` para evitar desplazamientos de contenido y mejorar la legibilidad en pantallas pequeñas.
+    * **Fichas de Casting:** Se forzó el ancho al 100% para garantizar una visualización limpia de los integrantes en el teléfono.
+
+### 3. Performance y Gestión de Assets
+* **Migración de Formatos:** Sustitución de archivos PNG de alta resolución (originales de 66MB) por versiones optimizadas en **JPEG**.
+* **Estandarización de Dimensiones:** Se fijó un tamaño estricto de **500px x 750px** para todas las imágenes de los integrantes, manteniendo una relación de aspecto 2:3.
+* **Impacto:** Reducción masiva del tiempo de carga y del consumo de datos, asegurando un rendimiento óptimo incluso en conexiones móviles limitadas.
+
+### 4. Estética y Filtros CSS
+* **Calibración de Imagen:** Ajuste del post-procesamiento digital aplicado por código para rescatar detalles en sombras y texturas oscuras.
+* **Valores Finales de Producción:**
+    * `filter: grayscale(100%)`: Mantiene la estética cruda y cinematográfica.
+    * `contrast(105%)`: Calibración para evitar el empaste de las prendas negras.
+    * `brightness(1.1)`: Incremento ligero para aportar nitidez a las facciones.
+* **Dinamismo:** Se conservó la transición suave al estado `:hover` para que la imagen recupere su color original al interactuar con ella.
+
+### 5. Configuración de Entorno y Despliegue
+* **Contexto de IA:** Creación del archivo `CONTEXT.md` para estandarizar las reglas innegociables de diseño (colores `#000` y `#e50914`) en asistentes de código.
+* **Protocolo de WordPress:** Se estableció el método de migración segura, copiando exclusivamente desde la etiqueta `<style>` hacia abajo para respetar el encabezado nativo de Elementor en `guardiabaja.com`.
 ---
 
 ## Contacto
