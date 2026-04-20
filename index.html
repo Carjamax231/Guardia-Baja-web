@@ -356,12 +356,36 @@
 
     /* TELEFONO */
     @media (max-width: 768px) {
-        .guardia-baja-app .navbar a { margin: 0 5px; font-size: 0.75rem; letter-spacing: 1px; }
-        .guardia-baja-app h1 { font-size: 3.2rem !important; letter-spacing: 5px; }
-        .guardia-baja-app .hero-overlay { background: rgba(0, 0, 0, 0.5); }
-        .guardia-baja-app .team-member { width: 140px; }
-        .guardia-baja-app .titulo-seccion { font-size: 2.2rem; }
-        .guardia-baja-app .social-container { gap: 25px; flex-direction: column; }
+        .guardia-baja-app .navbar {
+            padding: 10px 0;
+            overflow-x: auto; /* Permite deslizar el menú si es muy largo */
+            white-space: nowrap;
+        }
+        .guardia-baja-app .navbar a {
+            margin: 0 10px;
+            font-size: 0.9rem; /* Un poco más grande para legibilidad */
+            display: inline-block;
+            padding: 10px 5px;
+        }
+        /* --- AJUSTE DE BOTONES Y TÍTULO (EL DOBLE IMPACTO) --- */
+        .guardia-baja-app h1 {
+            font-size: 3.5rem !important; /* Título más equilibrado en tlf */
+            letter-spacing: 5px;
+        }
+        .guardia-baja-app .hero-botones {
+            flex-direction: column; /* Apila los botones verticalmente */
+            align-items: center;
+            width: 100%;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .guardia-baja-app .hero-botones .btn-rojo {
+            width: 85%; /* Más fáciles de tocar con el pulgar */
+            max-width: 320px;
+            margin: 0 !important;
+            font-size: 1rem;
+            text-align: center;
+        }
     }
 </style>
 
