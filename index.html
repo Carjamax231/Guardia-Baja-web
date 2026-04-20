@@ -124,7 +124,33 @@
         text-decoration: none;
     }
     .guardia-baja-app .btn-rojo:hover { background-color: #ffffff !important; color: #000000 !important; }
-
+    /* --- CONTENEDOR DE BOTONES (EL EQUIPO) --- */
+    .guardia-baja-app .hero-botones {
+        display: flex;
+        gap: 20px; 
+        justify-content: center;
+        margin-top: 40px; /* Aquí controlamos la distancia con el título */
+        flex-wrap: wrap; 
+        position: relative; 
+        z-index: 10; /* Por encima del video de fondo */
+    }
+    /* Quitamos el margen individual para que no se sume doble */
+    .guardia-baja-app .hero-botones .btn-rojo {
+        margin-top: 0 !important; 
+    }
+    /* AJUSTE PARA CELULARES */
+    @media (max-width: 600px) {
+        .guardia-baja-app .hero-botones {
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .guardia-baja-app .hero-botones .btn-rojo {
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+        }
+    }
     /* --- SINOPSIS --- */
     .guardia-baja-app #sinopsis, .guardia-baja-app #casting { padding: 100px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
     .guardia-baja-app .titulo-seccion { font-size: 3.5rem; letter-spacing: 3px; color: #e50914; margin-bottom: 40px; }
@@ -358,7 +384,10 @@
         
         <h1>GUARDIA BAJA</h1>
         <p class="tagline">¿QUÉ OCURRE CUANDO EL COMBATE MÁS DIFÍCIL NO SE LIBRA EN EL RING, SINO FRENTE AL PESO DE LAS EXPECTATIVAS?</p>
-        <a href="#patrocinadores-ticker" class="btn-rojo">Ver Planes de Patrocinio</a>
+<div class="hero-botones">
+        <a href="#patrocinadores-ticker" class="btn-rojo">PLANES DE PATROCINIO</a>
+        <a href="#casting" class="btn-rojo">POSTULARSE AL CASTING</a>
+    </div>
     </section>
 
     <section id="sinopsis">
