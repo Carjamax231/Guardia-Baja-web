@@ -292,6 +292,20 @@
     .guardia-baja-app .ticker-item img.logo-endoret:hover {
         transform: scale(1.6); 
     }
+    /* --- Línea 295: REGLA ESPECIAL PARA EQUILIBRAR A DORADO VENEZUELA --- */
+.guardia-baja-app .ticker-item img.logo-dorado {
+    height: 55px; /* Altura máxima para no desbordar el ticker[cite: 4] */
+    width: auto;
+    transform: scale(0.85); /* Reducción por ser formato cuadrado */
+    filter: brightness(0) invert(1) opacity(0.5); /* Estética Fantasma[cite: 4] */
+    transition: all 0.4s ease;
+}
+
+.guardia-baja-app .ticker-item img.logo-dorado:hover {
+    filter: none; /* Recupera su amarillo y blanco original[cite: 4] */
+    transform: scale(1.1); /* Efecto de resalte[cite: 4] */
+    opacity: 1;
+}
     /* LA ANIMACIÓN (El Bucle Infinito) */
     @keyframes scrollTicker {
         0% { transform: translateX(0); }
@@ -510,19 +524,18 @@
     </section>
 <section id="patrocinadores-ticker">
         <h2 class="titulo-seccion">PATROCINADORES</h2>
-        
-        <div class="ticker-wrap">
-            <div class="ticker-track">
-                <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/universitas.png" alt="Universitas"></div>
-               <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/endoret.png" alt="Endoret" class="logo-endoret"></div>
-                <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/universitas.png" alt="Universitas"></div>
-                <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/endoret.png" alt="Endoret" class="logo-endoret"></div>
-                <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/universitas.png" alt="Universitas"></div>
-                <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/endoret.png" alt="Endoret" class="logo-endoret"></div>
-                <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/universitas.png" alt="Universitas"></div>
-                <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/endoret.png" alt="Endoret" class="logo-endoret"></div>
+                <!-- Línea 528: Estructura Refactorizada y Limpia -->
+            <div class="ticker-wrap">
+                <div class="ticker-track">
+                    <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/universitas.png" alt="Universitas"></div>
+                    <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/endoret.png" alt="Endoret" class="logo-endoret"></div>
+                    <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/Dorado.png" alt="Dorado Venezuela" class="logo-dorado"></div>
+                    <!-- Duplicación para bucle infinito (sin espacios innecesarios) -->
+                    <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/universitas.png" alt="Universitas"></div>
+                    <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/endoret.png" alt="Endoret" class="logo-endoret"></div>
+                    <div class="ticker-item"><img src="https://carjamax231.github.io/Guardia-Baja-web/Dorado.png" alt="Dorado Venezuela" class="logo-dorado"></div>
+                </div>
             </div>
-        </div>
     </section>
     <section id="seccion-patrocinio">
         <h3 class="subtitulo-seccion">GIMNASIO DE ALIADOS</h3>
