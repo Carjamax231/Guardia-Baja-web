@@ -256,7 +256,7 @@
     .guardia-baja-app .ticker-track {
         display: flex;
         width: max-content;
-        animation: scrollTicker 10s linear infinite;
+        animation: scrollTicker 65s linear infinite;
     }
     /* Freno de emergencia al pasar el mouse */
     .guardia-baja-app .ticker-track:hover {
