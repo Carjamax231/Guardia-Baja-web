@@ -114,15 +114,17 @@
         text-decoration: none;
     }
     .guardia-baja-app .btn-rojo:hover { background-color: #ffffff !important; color: #000000 !important; }
+
     /* --- CONTENEDOR DE BOTONES (EL EQUIPO) --- */
+
     .guardia-baja-app .hero-botones {
         display: flex;
         gap: 20px; 
         justify-content: center;
-        margin-top: 40px; /* Aquí controlamos la distancia con el título */
+        margin-top: 40px;
         flex-wrap: wrap; 
         position: relative; 
-        z-index: 10; /* Por encima del video de fondo */
+        z-index: 10; 
     }
     /* Quitamos el margen individual para que no se sume doble */
     .guardia-baja-app .hero-botones .btn-rojo {
@@ -256,7 +258,7 @@
     .guardia-baja-app .ticker-track {
         display: flex;
         width: max-content;
-        animation: scrollTicker 65s linear infinite;
+        animation: scrollTicker 75s linear infinite;
     }
     
     /* Freno de emergencia al pasar el mouse */
@@ -291,18 +293,18 @@
     .guardia-baja-app .ticker-item img.logo-endoret:hover {
         transform: scale(1.6); 
     }
-    /* --- Línea 295: REGLA ESPECIAL PARA EQUILIBRAR A DORADO VENEZUELA --- */
+    /* --- regla para equilibrar logo DORADO --- */
 .guardia-baja-app .ticker-item img.logo-dorado {
-    height: 55px; /* Altura máxima para no desbordar el ticker[cite: 4] */
+    height: 55px; 
     width: auto;
-    transform: scale(0.95); /* Reducción por ser formato cuadrado */
-    filter: brightness(0) invert(1) opacity(0.5); /* Estética Fantasma[cite: 4] */
+    transform: scale(0.95); 
+    filter: brightness(0) invert(1) opacity(0.5); 
     transition: all 0.4s ease;
 }
 
 .guardia-baja-app .ticker-item img.logo-dorado:hover {
-    filter: none; /* Recupera su amarillo y blanco original[cite: 4] */
-    transform: scale(1.05); /* Efecto de resalte[cite: 4] */
+    filter: none; 
+    transform: scale(1.05); 
     opacity: 1;
 }
     /* LA ANIMACIÓN (El Bucle Infinito) */
@@ -315,7 +317,7 @@
         padding: 80px 20px 40px; 
         background-color: #050505; 
         text-align: center; 
-        border: none; /* Adiós a la línea sólida sobre el campanazo final */
+        border: none; /* Adiós a la línea sólida sobre el campanazo final */ 
     }
 
     /* --- PATROCINIO --- */
@@ -372,7 +374,7 @@
             display: inline-block;
             padding: 10px 5px;
         }
-        /* --- AJUSTE DE BOTONES Y TÍTULO (EL DOBLE IMPACTO) --- */
+        /* --- AJUSTE DE BOTONES Y TÍTULO--- */
         .guardia-baja-app h1 {
             font-size: 3.5rem !important; /* Título más equilibrado en tlf */
             letter-spacing: 5px;
