@@ -254,7 +254,6 @@
         padding: 25px 0;
         border: none; /* Adiós a las líneas punteadas */
     }
-    /* EL MOTOR Y LA PISTA (Lo que habíamos borrado) */
     .guardia-baja-app .ticker-track {
         display: flex;
         width: max-content;
