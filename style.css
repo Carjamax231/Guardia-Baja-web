@@ -116,7 +116,6 @@
     .guardia-baja-app .btn-rojo:hover { background-color: #ffffff !important; color: #000000 !important; }
 
     /* --- CONTENEDOR DE BOTONES (EL EQUIPO) --- */
-
     .guardia-baja-app .hero-botones {
         display: flex;
         gap: 20px; 
@@ -259,12 +258,11 @@
         width: max-content;
         animation: scrollTicker 75s linear infinite;
     }
-    
-    /* Freno de emergencia al pasar el mouse */
+    /* al pasar el mouse */
     .guardia-baja-app .ticker-track:hover {
         animation-play-state: paused;
     }
-    /* CONTENEDOR DE CADA LOGO (Mantiene la separación) */
+    /* contenedor para cada logo */
     .guardia-baja-app .ticker-item {
         width: 180px; 
         padding: 0 20px;
@@ -287,25 +285,25 @@
     }
     /* REGLA ESPECIAL PARA EQUILIBRAR A ENDORET */
     .guardia-baja-app .ticker-item img.logo-endoret {
-    transform: scale(1.35);
-}
+        transform: scale(1.35);
+    }
     .guardia-baja-app .ticker-item img.logo-endoret:hover {
         transform: scale(1.6); 
     }
     /* --- regla para equilibrar logo DORADO --- */
-.guardia-baja-app .ticker-item img.logo-dorado {
-    height: 55px; 
-    width: auto;
-    transform: scale(0.95); 
-    filter: brightness(0) invert(1) opacity(0.5); 
-    transition: all 0.4s ease;
-}
+    .guardia-baja-app .ticker-item img.logo-dorado {
+        height: 55px; 
+        width: auto;
+        transform: scale(0.95); 
+        filter: brightness(0) invert(1) opacity(0.5); 
+        transition: all 0.4s ease;
+    }
 
-.guardia-baja-app .ticker-item img.logo-dorado:hover {
-    filter: none; 
-    transform: scale(1.05); 
-    opacity: 1;
-}
+    .guardia-baja-app .ticker-item img.logo-dorado:hover {
+        filter: none; 
+        transform: scale(1.05); 
+        opacity: 1;
+    }
     /* LA ANIMACIÓN (El Bucle Infinito) */
     @keyframes scrollTicker {
         0% { transform: translateX(0); }
@@ -316,7 +314,7 @@
         padding: 80px 20px 40px; 
         background-color: #050505; 
         text-align: center; 
-        border: none; /* Adiós a la línea sólida sobre el campanazo final */ 
+        border: none; /* sin linea al final */ 
     }
 
     /* --- PATROCINIO --- */
