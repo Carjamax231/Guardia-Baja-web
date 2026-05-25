@@ -10,7 +10,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #050505; /* Casi negro, el abismo del cuadrilátero */
+    background-color: #202020; /* Casi negro, el abismo del cuadrilátero */
     color: #ffffff;
     font-family: 'Lekton', monospace, sans-serif; /* Alineado con el estilo de la web principal */
     display: flex;
