@@ -10,11 +10,12 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #202020; /* Casi negro, el abismo del cuadrilátero */
+    /* Degradado circular: luz roja oscura en el centro, negro a los lados */
+    background: radial-gradient(circle at center, #2a0000 0%, #050505 80%);
     color: #ffffff;
-    font-family: 'Lekton', monospace, sans-serif; /* Alineado con el estilo de la web principal */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     display: flex;
-    justify-content: center; /* Centra el contenedor horizontalmente */
+    justify-content: center;
     min-height: 100vh;
 }
 
