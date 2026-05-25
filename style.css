@@ -1,3 +1,9 @@
+    html, body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden !important; 
+    }
     /* --- ESTILOS OPTIMIZADOS PARA VS CODE Y WORDPRESS --- */
     @font-face {
         font-family: 'Zumme Rough';
@@ -391,3 +397,43 @@
             text-align: center;
         }
     }
+
+   
+/* --- CORRECCIÓN DE LA BARRA DE SCROLL HORIZONTAL --- */
+.guardia-baja-app .hero {
+    overflow: hidden;
+}
+
+/* --- TICKER RING-SIDE (ANCLADO AL FONDO DE LA PORTADA) --- */
+.guardia-baja-app .hero .ticker-ringside {
+    position: absolute; 
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 12px 0; 
+    z-index: 10; 
+    border-top: 1px solid rgba(229, 9, 20, 0.3);
+    backdrop-filter: blur(4px);
+    box-sizing: border-box;
+    overflow: hidden !important;
+}
+
+/* Ajuste de espacio para el ticker VIP */
+.guardia-baja-app .hero .ticker-ringside .ticker-item {
+    width: 130px; 
+    padding: 0 10px; 
+}
+
+.guardia-baja-app .hero .ticker-ringside .ticker-item img {
+    height: 40px; 
+}
+
+/* Ajustes específicos de proporción */
+.guardia-baja-app .hero .ticker-ringside .ticker-item img.logo-dorado {
+    height: 30px; 
+}
+
+.guardia-baja-app .hero .ticker-ringside .ticker-item img.logo-endoret {
+    transform: scale(1.2); 
+}
