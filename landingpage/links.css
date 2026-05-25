@@ -10,8 +10,7 @@
 body {
     margin: 0;
     padding: 0;
-    /* Degradado circular: luz roja oscura en el centro, negro a los lados */
-    background: radial-gradient(circle at center, #2a0000 0%, #050505 80%);
+    background: radial-gradient(circle at center, #2a0000 0%, #050505 80%) !important;
     color: #ffffff;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     display: flex;
@@ -36,12 +35,13 @@ body {
 .profile-logo {
     width: 110px;
     height: 110px;
-    border-radius: 50%; /* Hace que la imagen sea un círculo perfecto */
-    background-color: #1a1a1a; /* Fondo gris oscuro por si la imagen tarda en cargar */
+    border-radius: 50% !important; 
+    background-color: #1a1a1a; 
     object-fit: cover;
     margin-bottom: 15px;
-    border: 2px solid #800000; /* Un anillo vinotinto alrededor del logo */
+    border: 2px solid #800000 !important; 
 }
+
 
 .profile-title {
     font-family: 'Zumme Rough', 'Impact', sans-serif; /* Tipografía oficial de la película */
