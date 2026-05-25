@@ -1,0 +1,87 @@
+/* --- CSS PARA LANDING PAGE DE ENLACES (ESTILO GUARDIA BAJA) --- */
+
+@font-face {
+    font-family: 'Zumme Rough';
+    src: url('https://carjamax231.github.io/Guardia-Baja-web/zumme-rough-bold.otf') format('opentype'); 
+    font-weight: bold;
+}
+
+/* 1. Fondo general de la página */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #050505; /* Casi negro, el abismo del cuadrilátero */
+    color: #ffffff;
+    font-family: 'Lekton', monospace, sans-serif; /* Alineado con el estilo de la web principal */
+    display: flex;
+    justify-content: center; /* Centra el contenedor horizontalmente */
+    min-height: 100vh;
+}
+
+/* 2. El contenedor que simula el celular */
+.landing-container {
+    width: 100%;
+    max-width: 450px; /* Mantiene la forma de teléfono incluso en monitores grandes */
+    padding: 50px 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* 3. Estilos de la Cabecera (Logo y Textos) */
+.profile-header {
+    margin-bottom: 40px;
+}
+
+.profile-logo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%; /* Hace que la imagen sea un círculo perfecto */
+    background-color: #1a1a1a; /* Fondo gris oscuro por si la imagen tarda en cargar */
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 2px solid #800000; /* Un anillo vinotinto alrededor del logo */
+}
+
+.profile-title {
+    font-family: 'Zumme Rough', 'Impact', sans-serif; /* Tipografía oficial de la película */
+    font-size: 2rem;
+    margin: 0 0 8px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.profile-subtitle {
+    font-size: 0.95rem;
+    color: #aaaaaa;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* 4. El "Gimnasio" de los Botones */
+.links-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Separación perfecta entre cada botón */
+}
+
+.link-button {
+    display: block;
+    background-color: #6a040f; /* El color vinotinto que vimos en el Linktree original */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 18px 20px;
+    border-radius: 30px; /* Las curvas clásicas de los botones de enlaces */
+    font-size: 1.05rem;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el mouse, tocar en celular, o navegar con teclado */
+.link-button:hover,
+.link-button:focus-visible {
+    background-color: #e50914; /* Se enciende en rojo sangre Guardia Baja */
+    transform: translateY(-3px); /* Se levanta un poquito */
+    box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3); /* Sombra roja sutil */
+    outline: none; /* Quitamos el borde azul nativo de los navegadores */
+}
