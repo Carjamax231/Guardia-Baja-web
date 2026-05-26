@@ -195,7 +195,7 @@
         border: 1px solid #333;
         padding: 25px;
         text-align: center;
-        border-left: 3px solid #e50914; /* Un toque rojo para mantener el estilo */
+        border-left: 3px solid #e50914;
     }
     .guardia-baja-app .info-coordenadas p {
         color: #bbb;
@@ -230,7 +230,6 @@
     }
     .guardia-baja-app .btn-whatsapp svg { width: 24px; height: 24px; fill: currentColor; }
     
-    /* Al pasar el mouse, se ilumina con el verde clásico de WhatsApp */
     .guardia-baja-app .btn-whatsapp:hover {
         border-color: #25D366;
         color: #25D366;
@@ -315,13 +314,6 @@
         0% { transform: translateX(0); }
         100% { transform: translateX(-50%); }
     }
-    /* --- FOOTER SIN LÍNEA DIVISORIA --- */
-    .guardia-baja-app #contacto { 
-        padding: 80px 20px 40px; 
-        background-color: #050505; 
-        text-align: center; 
-        border: none; /* sin linea al final */ 
-    }
 
     /* --- PATROCINIO --- */
     .guardia-baja-app #seccion-patrocinio { padding: 40px 20px 80px; background-color: #050505; }
@@ -337,14 +329,14 @@
     .guardia-baja-app .recordatorio { max-width: 800px; margin: 60px auto 0; text-align: center; border-top: 1px solid #222; padding-top: 40px; }
     .guardia-baja-app .recordatorio h5 { font-family: 'Zumme Rough', 'Impact', sans-serif; color: #e50914; font-size: 2rem; margin-bottom: 20px; }
     .guardia-baja-app .recordatorio p { color: #888; font-size: 1.2rem; line-height: 1.6; font-style: italic; }
-    /* --- FOOTER & CONTACTO --- */
-    .guardia-baja-app #contacto { padding: 80px 20px 40px; background-color: #050505; text-align: center; border-top: 2px solid #111; }
+    /* --- FOOTER & CONTACTO (Refinado) --- */
+    .guardia-baja-app #contacto { padding: 80px 20px 40px; background-color: #050505; text-align: center; border: none; }
     .guardia-baja-app .social-container { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 50px; margin-bottom: 50px; }
     .guardia-baja-app .social-icon { color: #ffffff; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 15px; text-decoration: none; }
-    .guardia-baja-app .social-icon svg { width: 35px; height: 35px; fill: currentColor; }
-    .guardia-baja-app .social-icon span { font-family: 'Lekton', monospace; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+    .guardia-baja-app .social-icon svg { width: 35px; height: 35px; min-width: 35px; fill: currentColor; flex-shrink: 0; }
+    .guardia-baja-app .social-icon span { font-family: 'Lekton', monospace; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; word-break: break-word; }
     .guardia-baja-app .social-icon:hover { color: #e50914; transform: scale(1.05); }
-    .guardia-baja-app .creditos-footer { color: #444; font-size: 0.9rem; letter-spacing: 3px; font-family: 'Lekton', monospace; text-transform: uppercase; }
+    .guardia-baja-app .creditos-footer { color: #888; font-size: 0.9rem; letter-spacing: 3px; font-family: 'Lekton', monospace; text-transform: uppercase; margin-top: 20px;}
 
     .guardia-baja-app .subtitulo-seccion {
         font-family: 'Zumme Rough', 'Impact', sans-serif;
@@ -395,6 +387,15 @@
             margin: 0 !important;
             font-size: 1rem;
             text-align: center;
+        }
+        /* Ajustes Móviles para que el correo largo no rompa la pantalla */
+        .guardia-baja-app .social-container {
+            flex-direction: column; 
+            gap: 30px;
+        }
+        .guardia-baja-app .social-icon span {
+            font-size: 1rem; 
+            letter-spacing: 1px;
         }
     }
 
