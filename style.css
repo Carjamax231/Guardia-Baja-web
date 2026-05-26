@@ -438,3 +438,67 @@
 .guardia-baja-app .hero .ticker-ringside .ticker-item img.logo-endoret {
     transform: scale(1.2); 
 }
+
+/* --- FRANJA DE LLAMADO A LA ACCIÓN (EXTRAS) --- */
+.guardia-baja-app .extras-banner {
+    background-color: #080808; /* Fondo casi negro para contrastar */
+    border-top: 1px solid rgba(229, 9, 20, 0.4); /* Línea roja sutil arriba */
+    border-bottom: 1px solid rgba(229, 9, 20, 0.4); /* Línea roja sutil abajo */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.guardia-baja-app .extras-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.guardia-baja-app .extras-banner h2 {
+    font-size: 2.8rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.guardia-baja-app .extras-banner .extras-subtitle {
+    font-size: 1.1rem;
+    color: #aaaaaa;
+    margin-bottom: 40px;
+}
+
+/* Las "píldoras" de información estilo dashboard */
+.guardia-baja-app .extras-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.guardia-baja-app .extras-info p {
+    background-color: #121212;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    margin: 0;
+    border: 1px solid #222;
+    color: #ddd;
+}
+
+.guardia-baja-app .extras-info p strong {
+    color: #e50914; /* El rojo Guardia Baja para las etiquetas */
+    font-weight: bold;
+}
+
+/* Enlaces de WhatsApp dentro de la caja de información */
+.guardia-baja-app .extras-info p a {
+    color: inherit; /* Hereda el color blanco/gris para no verse azul por defecto */
+    text-decoration: none; /* Quitamos el subrayado feo del navegador */
+    transition: color 0.3s ease; /* Hacemos que el cambio de color sea suave */
+}
+
+.guardia-baja-app .extras-info p a:hover {
+    color: #e50914; /* Se pone rojo Guardia Baja al pasar el mouse */
+}
